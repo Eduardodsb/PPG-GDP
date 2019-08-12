@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour {
 
 
     GameObject cam;
-    GameObject oldCam = null;
 
     // Start is called before the first frame update
     void Start(){
