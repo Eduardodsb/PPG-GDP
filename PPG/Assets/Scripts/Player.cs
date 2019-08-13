@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
 
     GameObject cam;
+    string name = "";
 
     // Start is called before the first frame update
     void Start()
@@ -41,19 +42,19 @@ public class Player : MonoBehaviour
 
     public void SavePlayer()
     {
-        SaveSystem.SavePlayer(this);
+        SaveSystem.SavePlayer(this, name);
     }
 
 
     public void LoadPlayer()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
-
+        Save data = SaveSystem.LoadPlayer();
+        /*
         Vector3 position;
         position.x = data.position[0];
         position.y = data.position[1];
         position.z = data.position[2];
-        transform.position = position;
+        transform.position = position;*/
     }
 
 }

@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    public static void SavePlayer (Player player)
+    public static void SavePlayer (Player player, string name)
     {
         //Cria um formato binário
         BinaryFormatter formatter = new BinaryFormatter();
@@ -16,7 +16,7 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
 
         //Carrega a estrutura com os dados do player
-        PlayerData data = new PlayerData(player);
+        Save data = new Save(player, name);
 
         //Escreve o dado formatado no arquivo player.rde
         formatter.Serialize(stream, data);
@@ -25,7 +25,7 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static PlayerData LoadPlayer()
+    public static Save LoadPlayer()
     {
         string path = Application.persistentDataPath + "/player.rde";
 
@@ -36,7 +36,7 @@ public static class SaveSystem
             //Abre o arquivo que contém todos os dados do player
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            PlayerData  data = formatter.Deserialize(stream) as PlayerData;
+            Save  data = formatter.Deserialize(stream) as Save;
 
             stream.Close();
 

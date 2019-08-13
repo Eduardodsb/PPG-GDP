@@ -41,6 +41,7 @@ public class Menu : MonoBehaviour {
     }
 
     public void Score(){
+
     }
 
     public void NewGame(){

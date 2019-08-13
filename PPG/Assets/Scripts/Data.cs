@@ -4,12 +4,12 @@ using UnityEngine;
 
 //Permite salvar em um arquivo
 [System.Serializable]
-public class PlayerData
+public class Data
 {
 
     public float[] position;
 
-    public PlayerData (Player player)
+    public Data (Player player)
     {
         position = new float[3];
         position[0] = player.transform.position.x;
