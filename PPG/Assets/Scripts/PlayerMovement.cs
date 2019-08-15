@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D rb;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start(){
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +27,10 @@ public class PlayerMovement : MonoBehaviour {
     void Update(){
         move = Input.GetAxisRaw("Horizontal");
         jump = Input.GetAxisRaw("Jump");
+
+        animator.SetFloat("Speed", Mathf.Abs(move));
+
+
     }
 
 
@@ -47,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
         if (move > 0 && !facingRight || move < 0 && facingRight)
         {
             facingRight = !facingRight;
-            transform.Rotate(0f, 180f, 0f);
+            transform.localScale = new Vector3(-1* transform.localScale.x, 1,1);
         }
     }
 
