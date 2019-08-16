@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             isJumping = true;
             rb.AddForce(new Vector2(0f, jumpForce));
+            SoundManagerScript.PlaySound("playerJumpSound");
         }
     }
 
