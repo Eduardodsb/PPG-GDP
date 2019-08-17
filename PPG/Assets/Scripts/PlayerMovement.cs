@@ -76,4 +76,19 @@ public class PlayerMovement : MonoBehaviour {
         allowmovement = false;
     }
 
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log(collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("Ground") )
+        {
+            isJumping = false;
+            rb.velocity = Vector2.zero;
+            //rb.angularVelocity = 0f;
+
+        }
+
+    }
+
 }
