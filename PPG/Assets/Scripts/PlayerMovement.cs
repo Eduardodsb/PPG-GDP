@@ -17,9 +17,12 @@ public class PlayerMovement : MonoBehaviour {
 
     public Animator animator;
 
+    private SoundManagerScript soundManager;
+
     // Start is called before the first frame update
     void Start(){
         rb = GetComponent<Rigidbody2D>();
+        soundManager = SoundManagerScript.instance;
     }
 
 
@@ -64,7 +67,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             isJumping = true;
             rb.AddForce(new Vector2(0f, jumpForce));
-            SoundManagerScript.PlaySound("playerJumpSound");
+            soundManager.PlaySound("PlayerJump");
         }
     }
 

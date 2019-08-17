@@ -2,8 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Sound
+{
+    public string name;
+    public AudioClip clip;
+
+    private AudioSource audiosrc;
+
+    public void SetSource(AudioSource _audiosrc)
+    {
+        audiosrc = _audiosrc;
+        audiosrc.clip = clip;
+        
+    }
+
+    public void Play()
+    {
+        audiosrc.Play();
+    }
+}
+
 public class SoundManagerScript : MonoBehaviour
 {
+    public static SoundManagerScript instance;
+
+    [SerializeField]
+    public Sound[] sounds;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    void Start()
+    {
+        for(int i = 0; i < sounds.Length; i++)
+        {
+            GameObject _sound = new GameObject("Sound_" + i + "_" + sounds[i].name);
+            _sound.transform.SetParent(this.transform);
+            sounds[i].SetSource(_sound.AddComponent<AudioSource>());
+        }
+    }
+
+    public void PlaySound(string _name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name.Equals(_name))
+            {
+                sounds[i].Play();
+                return;
+            }
+        }
+
+        Debug.LogWarning("O nome " + _name + " não foi encontrado.");
+    }
+    /*
 
     public static AudioClip playerDeathSound, playerJumpSound, playerHitSound, playerAttackSound, enemyDeathSound, chestOpenSound, chestCloseSound;
     static AudioSource audiosrc;
@@ -52,4 +108,5 @@ public class SoundManagerScript : MonoBehaviour
                 break;
         }
     }
+    */
 }
