@@ -27,8 +27,12 @@ public class InitialScene : MonoBehaviour{
         gameObject.GetComponent<Animator>().SetBool("NextScene", true);
     }
 
-    public void KeyboardSound(){
-        GameObject.Find("GameManager").GetComponent<SoundManagerScript>().PlaySound("KeyboardSound");
+    public void DreamSound1(){
+        GameObject.Find("GameManager").GetComponent<SoundManagerScript>().PlaySound("DreamSound1");
+    }
+
+    public void DreamSound2(){
+        GameObject.Find("GameManager").GetComponent<SoundManagerScript>().PlaySound("DreamSound2");
     }
 
     public void AllowPlayer(){

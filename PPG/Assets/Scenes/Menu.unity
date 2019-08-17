@@ -1319,9 +1319,13 @@ MonoBehaviour:
   - name: MenuSound
     clip: {fileID: 8300000, guid: a26bf3eec968087439cf416d923cdaed, type: 3}
     loop: 1
-    volume: 0.023
-  - name: KeyboardSound
-    clip: {fileID: 8300000, guid: 550140b790a7f3f43a74f4d743fb7f6d, type: 3}
+    volume: 0.24
+  - name: DreamSound1
+    clip: {fileID: 8300000, guid: 3fe3524d213fd62499efcce9daf8157a, type: 3}
+    loop: 0
+    volume: 1
+  - name: DreamSound2
+    clip: {fileID: 8300000, guid: 76a96f1a8488469478d8fcf920034e7d, type: 3}
     loop: 0
     volume: 1
 --- !u!114 &1574619162
