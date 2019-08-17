@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     bool facingRight = true;
     bool isJumping = false;
-    bool allowmovement = false;
+    public static bool allowmovement = false;
 
     float move;
     float jump;
