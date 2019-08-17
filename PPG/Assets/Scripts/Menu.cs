@@ -22,6 +22,7 @@ public class Menu : MonoBehaviour {
     }
 
     public void StartGame(){
+        GameObject.Find("GameManager").GetComponent<SoundManagerScript>().StopSound("MenuSound");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

@@ -1320,6 +1320,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a26bf3eec968087439cf416d923cdaed, type: 3}
     loop: 1
     volume: 0.023
+  - name: KeyboardSound
+    clip: {fileID: 8300000, guid: 550140b790a7f3f43a74f4d743fb7f6d, type: 3}
+    loop: 0
+    volume: 1
 --- !u!114 &1574619162
 MonoBehaviour:
   m_ObjectHideFlags: 0

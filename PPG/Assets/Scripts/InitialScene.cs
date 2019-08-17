@@ -10,7 +10,6 @@ public class InitialScene : MonoBehaviour{
     GameObject button;
 
     GameObject soundManager;
-    bool keyboardSound = false;
 
     void Start(){
         text1 = GameObject.Find("Text1");
@@ -29,9 +28,7 @@ public class InitialScene : MonoBehaviour{
     }
 
     public void KeyboardSound(){
-        if (keyboardSound){
-            
-        }
+        GameObject.Find("GameManager").GetComponent<SoundManagerScript>().PlaySound("KeyboardSound");
     }
 
     public void AllowPlayer(){
