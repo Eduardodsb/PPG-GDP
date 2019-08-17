@@ -45,6 +45,7 @@ public class PauseMenuScript : MonoBehaviour
     public void LoadMenu()
     {
         Resume();
+        Destroy(GameObject.Find("GameManager"));
         PlayerMovement.allowmovement = false;
         SceneManager.LoadScene(0);
     }
