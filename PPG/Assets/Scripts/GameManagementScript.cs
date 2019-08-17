@@ -6,11 +6,13 @@ using UnityEngine;
 public class GameManagementScript : MonoBehaviour
 {
     string sceneName;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(GameObject.Find("GameManager"));
+        //DontDestroyOnLoad(GameObject.Find("GameManager"));
         sceneName = GetScene();
         InitScene();
     }
@@ -20,6 +22,18 @@ public class GameManagementScript : MonoBehaviour
 
     }
 
+    private void Awake()
+    {
+        int numGameManagers = FindObjectsOfType<GameManagementScript>().Length;
+        if(numGameManagers!= 1)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private string GetScene(){
         return SceneManager.GetActiveScene().name;
