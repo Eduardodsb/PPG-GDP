@@ -7,6 +7,9 @@ public class Sound
 {
     public string name;
     public AudioClip clip;
+    public bool loop;
+    [Range(0f, 1f)]
+    public float volume;
 
     private AudioSource audiosrc;
 
@@ -14,7 +17,9 @@ public class Sound
     {
         audiosrc = _audiosrc;
         audiosrc.clip = clip;
-        
+        audiosrc.loop = loop;
+        audiosrc.volume = volume;
+
     }
 
     public void Play()
@@ -29,7 +34,6 @@ public class SoundManagerScript : MonoBehaviour
 
     [SerializeField]
     public Sound[] sounds;
-
 
     private void Awake()
     {
