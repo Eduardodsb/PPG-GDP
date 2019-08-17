@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InitialScene : MonoBehaviour
-{
+public class InitialScene : MonoBehaviour{
 
     GameObject text1;
     GameObject text2;
@@ -13,8 +12,7 @@ public class InitialScene : MonoBehaviour
     GameObject soundManager;
     bool keyboardSound = false;
 
-    void Start()
-    {
+    void Start(){
         text1 = GameObject.Find("Text1");
         text2 = GameObject.Find("Text2");
         text3 = GameObject.Find("Text3");
@@ -22,8 +20,7 @@ public class InitialScene : MonoBehaviour
         soundManager = GameObject.Find("SoundManager");
     }
 
-    public void NextScene()
-    {
+    public void NextScene(){
         text1.SetActive(false);
         text2.SetActive(false);
         text3.SetActive(false);
@@ -35,6 +32,10 @@ public class InitialScene : MonoBehaviour
         if (keyboardSound){
             
         }
+    }
+
+    public void AllowPlayer(){
+        GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
     }
 
 }

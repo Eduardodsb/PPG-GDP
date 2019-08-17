@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     bool facingRight = true;
     bool isJumping = false;
+    bool allowmovement = false;
 
     float move;
     float jump;
@@ -28,47 +29,51 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update(){
-        move = Input.GetAxisRaw("Horizontal");
-        jump = Input.GetAxisRaw("Jump");
+        if (allowmovement) {
 
-        animator.SetFloat("Speed", Mathf.Abs(move));
+            move = Input.GetAxisRaw("Horizontal");
+            jump = Input.GetAxisRaw("Jump");
 
+            animator.SetFloat("Speed", Mathf.Abs(move));
+        }
 
     }
 
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate(){
         rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
 
         Flip(move);
 
-        if (jump != 0)
-        {
+        if (jump != 0){
             Jump();
         }
 
     }
 
 
-    private void Flip(float move)
-    {
-        if (move > 0 && !facingRight || move < 0 && facingRight)
-        {
+    private void Flip(float move){
+        if (move > 0 && !facingRight || move < 0 && facingRight){
             facingRight = !facingRight;
             transform.localScale = new Vector3(-1* transform.localScale.x, 1,1);
         }
     }
 
 
-    private void Jump()
-    {
-        if (!isJumping)
-        {
+    private void Jump(){
+        if (!isJumping){
             isJumping = true;
             rb.AddForce(new Vector2(0f, jumpForce));
             soundManager.PlaySound("PlayerJump");
         }
+    }
+
+    public void AllowMovement(){
+        allowmovement = true;
+    }
+
+    public void DisallowMovement(){
+        allowmovement = false;
     }
 
 }
