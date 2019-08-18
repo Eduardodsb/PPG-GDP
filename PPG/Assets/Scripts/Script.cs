@@ -9,6 +9,7 @@ public class Script : MonoBehaviour
     public TextAsset inkJSONAsset;
     private Story story;
     public Button buttonPrefab;
+    int cont = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,7 @@ public class Script : MonoBehaviour
     //  - Clear any current elements
     //  - Show any text chunks
     //  - Iterate through any choices and create listeners on them
-    void refresh()
-    {
+    void refresh(){
         // Clear the UI
         clearUI();
 
@@ -58,13 +58,22 @@ public class Script : MonoBehaviour
                 OnClickChoiceButton(choice);
             });
 
+         
+
         }
+
     }
 
     // When we click the choice button, tell the story to choose that choice!
     void OnClickChoiceButton(Choice choice)
     {
         story.ChooseChoiceIndex(choice.index);
+       
+        cont++;
+        if (cont == 2)
+        {
+            GameObject.Find("Dark").SetActive(false);
+        }
         refresh();
     }
 
@@ -83,12 +92,12 @@ public class Script : MonoBehaviour
     string getNextStoryBlock()
     {
         string text = "";
-
+        //text += story.Continue();
         while (story.canContinue)
         {
             text += story.Continue();
         }
-
+        
         return text;
     }
 

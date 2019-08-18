@@ -36,6 +36,7 @@ public class InitialScene : MonoBehaviour{
     }
 
     public void AllowPlayer(){
+        gameObject.SetActive(false);
         GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
     }
 
