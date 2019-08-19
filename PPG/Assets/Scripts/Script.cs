@@ -95,6 +95,10 @@ public class Script : MonoBehaviour
           while (story.canContinue){
               text += story.Continue();
           }
+
+       /* if (story.canContinue == false){
+            GameObject.Find("DialogPanel").SetActive(false);
+        }*/
     /*    Debug.Log("oie");
       story.EvaluateFunction("sala_central", "dudu");
         Debug.Log(story.variablesState["name"]);*/
