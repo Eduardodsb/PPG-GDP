@@ -10,6 +10,7 @@ public class Script : MonoBehaviour
     private Story story;
     public Button buttonPrefab;
     int cont = 0;
+    int counter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -90,15 +91,30 @@ public class Script : MonoBehaviour
 
     // Load and potentially return the next story block
     string getNextStoryBlock(){
+
+        //Redireciona para um bloco específico do ink apenas uma x
+        if (counter == 0)
+        {
+            story.ChoosePathString("sala_central");
+            counter++;
+        }
+        
         string text = "";
         //text += story.Continue();
           while (story.canContinue){
               text += story.Continue();
+
           }
-    /*    Debug.Log("oie");
-      story.EvaluateFunction("sala_central", "dudu");
-        Debug.Log(story.variablesState["name"]);
-        return text;*/
+
+        //Me permite verificar se dentro do bloco === === existe algum metadato #teste
+        //Debug.Log(story.currentTags.Contains("teste")); 
+        
+        /*    Debug.Log("oie");
+          story.EvaluateFunction("sala_central", "dudu");
+            Debug.Log(story.variablesState["name"]);*/
+
+
+        return text;
     }
 
     // Update is called once per frame

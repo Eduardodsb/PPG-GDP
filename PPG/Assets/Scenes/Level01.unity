@@ -1010,7 +1010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.524452, y: -5.005862, z: -24.53391}
+  m_LocalPosition: {x: -0.50667584, y: -5.0058618, z: -24.53391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1275598734}
@@ -3468,7 +3468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65720f27afdf5a748a864dde92aa3689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONAsset: {fileID: 4900000, guid: c244512da2947a24290ffdf63acc8996, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: 1829943e2b71af74a9793d52e035253a, type: 3}
   buttonPrefab: {fileID: 2832243615186190787, guid: 6306bc93dd63f3841ab064d24e0b4d2d,
     type: 3}
 --- !u!114 &2065789524
