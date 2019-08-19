@@ -1,18 +1,6 @@
 -> sala_inicial
 === sala_inicial ===
 
-//tela preta
-#teste
-Eu te falei que não era pra misturar essas ervas, sapo. Não importa o que a grande avó te disse. Não, não era pra misturar... eu te falei...
-
-* [Comer o sapo]
-
-- Hein? O quê?
-
-//->DONE
-
-//=teste
-//luz fraca
 Nossa... que sonho bizarro. Não aguento mais essa semana. Me levem pra longe, por favor. 
 E pior que ainda é, vamos ver... quarta-feira? É, isso mesmo.
 
@@ -30,6 +18,7 @@ Tenho que levantar e me arrumar correndo. Desse jeito vou acabar reprovando.
 - O quê? Isso parece magia. 
 Tem alguma coisa estranha acontecendo. Melhor ter cuidado. Vou precisar me vestir.
 
+* [...]
 // gameplay da sala inicial. quando ela pega a roupa tem uma animação, mas nenhuma fala.
 
 -> END

@@ -63,6 +63,11 @@ public class Script : MonoBehaviour
 
         }
 
+        if (story.currentChoices.Count == 0)
+        {
+            GameObject.Find("DialogPanel").SetActive(false);
+        }
+
     }
 
     // When we click the choice button, tell the story to choose that choice!
@@ -75,6 +80,7 @@ public class Script : MonoBehaviour
         {
             GameObject.Find("Light").GetComponent<Animator>().enabled = true;
         }
+
         refresh();
     }
 
@@ -93,11 +99,11 @@ public class Script : MonoBehaviour
     string getNextStoryBlock(){
 
         //Redireciona para um bloco específico do ink apenas uma x
-        if (counter == 0)
+      /*  if (counter == 0)
         {
             story.ChoosePathString("sala_central");
             counter++;
-        }
+        }*/
         
         string text = "";
         //text += story.Continue();
