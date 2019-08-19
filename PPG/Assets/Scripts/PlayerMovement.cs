@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour {
 
     bool facingRight = true;
     bool isJumping = false;
+    bool collision = false;
+
     public static bool allowmovement = false;
 
     float move;
     float jump;
+
 
     private Rigidbody2D rb;
 
@@ -49,6 +52,17 @@ public class PlayerMovement : MonoBehaviour {
             Jump();
         }
 
+        if (rb.velocity.y > 0.5 && !collision){
+            animator.SetBool("Up", true);
+            animator.SetBool("Down", false);
+        }
+
+        if (rb.velocity.y < 0.5 && !collision){
+            animator.SetBool("Down", true);
+            animator.SetBool("Up", false);
+        }
+
+
     }
 
 
@@ -65,6 +79,7 @@ public class PlayerMovement : MonoBehaviour {
             isJumping = true;
             rb.AddForce(new Vector2(0f, jumpForce));
             soundManager.PlaySound("PlayerJump");
+            
         }
     }
 
@@ -83,12 +98,23 @@ public class PlayerMovement : MonoBehaviour {
 
         if (collision.gameObject.CompareTag("Ground") )
         {
+            this.collision = true;
+            animator.SetBool("Down", false);
+            animator.SetBool("Up", false);
             isJumping = false;
             rb.velocity = Vector2.zero;
             //rb.angularVelocity = 0f;
 
         }
 
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Ground")
+        {
+            this.collision = false;
+        }
     }
 
 }
