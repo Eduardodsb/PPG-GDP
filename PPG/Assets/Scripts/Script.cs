@@ -72,7 +72,7 @@ public class Script : MonoBehaviour
         cont++;
         if (cont == 2)
         {
-            GameObject.Find("Dark").SetActive(false);
+            GameObject.Find("Light").GetComponent<Animator>().enabled = true;
         }
         refresh();
     }
@@ -97,8 +97,8 @@ public class Script : MonoBehaviour
           }
     /*    Debug.Log("oie");
       story.EvaluateFunction("sala_central", "dudu");
-        Debug.Log(story.variablesState["name"]);
-        return text;*/
+        Debug.Log(story.variablesState["name"]);*/
+        return text;
     }
 
     // Update is called once per frame
