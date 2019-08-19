@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetBool("Down", false);
         }
 
-        if (rb.velocity.y < 0.5 && !collision){
+        if (rb.velocity.y < -0.5 && !collision){
             animator.SetBool("Down", true);
             animator.SetBool("Up", false);
         }
