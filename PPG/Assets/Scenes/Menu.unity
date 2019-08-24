@@ -1316,18 +1316,27 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f877121f18ee3924e9ba26fdbd31934d, type: 3}
     loop: 0
     volume: 0.13
+    audiosrc: {fileID: 0}
   - name: MenuSound
     clip: {fileID: 8300000, guid: a26bf3eec968087439cf416d923cdaed, type: 3}
     loop: 1
     volume: 0.24
+    audiosrc: {fileID: 0}
   - name: DreamSound1
     clip: {fileID: 8300000, guid: 3fe3524d213fd62499efcce9daf8157a, type: 3}
     loop: 0
     volume: 1
+    audiosrc: {fileID: 0}
   - name: DreamSound2
     clip: {fileID: 8300000, guid: 76a96f1a8488469478d8fcf920034e7d, type: 3}
     loop: 0
     volume: 1
+    audiosrc: {fileID: 0}
+  - name: RunSound
+    clip: {fileID: 8300000, guid: 6c3fe77627883c3408adb0704a97dbc3, type: 3}
+    loop: 0
+    volume: 0.1
+    audiosrc: {fileID: 0}
 --- !u!114 &1574619162
 MonoBehaviour:
   m_ObjectHideFlags: 0

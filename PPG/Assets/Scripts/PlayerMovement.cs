@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 
     float move;
     float jump;
-
+    float stepTime = 0f;
 
     private Rigidbody2D rb;
 
@@ -45,6 +45,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate(){
         rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
+
+        if(move != 0 && allowmovement && (Time.time - stepTime > 0.5f) && soundManager != null){ /*Deletar soundManager != null posteriormente*/
+            soundManager.PlaySound("RunSound");
+            stepTime = Time.time;
+        }
+        if(move == 0 && soundManager != null){ /*Deletar soundManager != null posteriormente*/
+            soundManager.StopSound("RunSound");
+        }
 
         Flip(move);
 

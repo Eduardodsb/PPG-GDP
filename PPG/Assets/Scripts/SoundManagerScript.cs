@@ -11,7 +11,7 @@ public class Sound
     [Range(0f, 1f)]
     public float volume;
 
-    private AudioSource audiosrc;
+    public AudioSource audiosrc;
 
     public void SetSource(AudioSource _audiosrc)
     {
@@ -56,7 +56,8 @@ public class SoundManagerScript : MonoBehaviour
 
     public void PlaySound(string _name){
         for (int i = 0; i < sounds.Length; i++){
-            if (sounds[i].name.Equals(_name)){
+            if (sounds[i].name.Equals(_name) && !sounds[i].audiosrc.isPlaying)
+            {
                 sounds[i].Play();
                 return;
             }

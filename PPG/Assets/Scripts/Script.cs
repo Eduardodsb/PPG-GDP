@@ -53,6 +53,7 @@ public class Script : MonoBehaviour
             // Gets the text from the button prefab
             Text choiceText = choiceButton.GetComponentInChildren<Text>();
             choiceText.text = choice.text;
+            choiceText.color = Color.white;
 
             // Set listener
             choiceButton.onClick.AddListener(delegate {
