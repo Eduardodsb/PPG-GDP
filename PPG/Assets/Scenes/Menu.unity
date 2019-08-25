@@ -1337,6 +1337,11 @@ MonoBehaviour:
     loop: 0
     volume: 0.1
     audiosrc: {fileID: 0}
+  - name: DashSound
+    clip: {fileID: 8300000, guid: d3061df4b458045468fec14edd88b3f5, type: 3}
+    loop: 0
+    volume: 0.1
+    audiosrc: {fileID: 0}
 --- !u!114 &1574619162
 MonoBehaviour:
   m_ObjectHideFlags: 0
