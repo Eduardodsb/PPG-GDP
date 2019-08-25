@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float runSpeed = 400;
+    public float runSpeed = 140;
     public float jumpForce = 300;
    /* public float shortJumpForce = 150;
     public float longJumpForce = 200;*/
-    public float dashSpeed = 150f;
+    public float dashSpeed = 450f;
     public float cooldownDashTime = 3f;
-    public float dashTime = 0.8f;
-    public float dashWaitTime = 0.5f;
+    public float dashTime = 0.25f;
+    public float dashWaitTime = 0.25f;
 
     bool facingRight = true;
     bool isJumping = false;
