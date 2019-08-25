@@ -1600,6 +1600,7 @@ Transform:
   m_LocalScale: {x: 0.882, y: 0.882, z: 0.882}
   m_Children:
   - {fileID: 761898672}
+  - {fileID: 1831291538}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1617,10 +1618,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 140
   jumpForce: 300
+  specialForce: 200
   dashSpeed: 450
   cooldownDashTime: 3
   dashTime: 0.25
   dashWaitTime: 0.25
+  cooldownSpecialTime: 3
+  lauchnSpecialAttack: {fileID: 1831291538}
+  specialAttackObject: {fileID: 4141330876234076859, guid: 5b40596add4008047af2216458ccbebe,
+    type: 3}
   animator: {fileID: 781991620}
 --- !u!114 &781991619
 MonoBehaviour:
@@ -4490,6 +4496,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1831291537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831291538}
+  m_Layer: 0
+  m_Name: LaunchSpecialAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1831291538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831291537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.004, y: -0.208, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 781991617}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958777282
 GameObject:
   m_ObjectHideFlags: 0

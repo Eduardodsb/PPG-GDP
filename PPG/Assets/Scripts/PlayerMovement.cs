@@ -6,18 +6,27 @@ public class PlayerMovement : MonoBehaviour {
 
     public float runSpeed = 140;
     public float jumpForce = 300;
-   /* public float shortJumpForce = 150;
-    public float longJumpForce = 200;*/
+    /* public float shortJumpForce = 150;
+     public float longJumpForce = 200;*/
+    public float specialForce = 50f;
     public float dashSpeed = 450f;
     public float cooldownDashTime = 3f;
     public float dashTime = 0.25f;
     public float dashWaitTime = 0.25f;
+
+
+    public float cooldownSpecialTime = 3f;
+
+    public Transform lauchnSpecialAttack;
+    public GameObject specialAttackObject;
+
 
     bool facingRight = true;
     bool isJumping = false;
     bool collision = false;
     bool isDashing = false;
     bool isDashCooldown = false;
+    bool isSpecialCooldown = false;
     bool allowFall = false;
 
     public static bool allowmovement = false;
@@ -30,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
    // double timeJumpDown;
     float fall;
     float dash;
+    bool special;
     float stepTime = 0f;
 
 
@@ -54,12 +64,12 @@ public class PlayerMovement : MonoBehaviour {
             move = Input.GetAxisRaw("Horizontal");
             jump = Input.GetAxisRaw("Jump"); /*Ser deletado - não utilizado*/
             // jumpUp = Input.GetButtonUp("Jump");
-           //  jumpDown = Input.GetButtonDown("Jump");
+            //  jumpDown = Input.GetButtonDown("Jump");
+            special = Input.GetButtonDown("SpecialAttack");
             fall = Input.GetAxisRaw("Fall");
             dash = Input.GetAxisRaw("Dash");
             animator.SetFloat("Speed", Mathf.Abs(move));
         }
-
     }
 
 
@@ -101,6 +111,21 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         //rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
+
+
+
+
+
+        if (special && !isSpecialCooldown)
+        {
+            isSpecialCooldown = true;
+            Invoke("removeSpecialCooldown", cooldownSpecialTime);
+            rb.AddForce(new Vector2(0f, specialForce));
+            Instantiate(specialAttackObject, lauchnSpecialAttack.position, Quaternion.identity);
+        }
+
+
+
 
         if(move != 0 && allowmovement && (Time.time - stepTime > 0.5f) && collision && soundManager != null){ /*Deletar soundManager != null posteriormente*/
             soundManager.PlaySound("RunSound");
@@ -172,6 +197,11 @@ public class PlayerMovement : MonoBehaviour {
         }
 
     }*/
+
+    private void removeSpecialCooldown()
+    {
+        isSpecialCooldown = false;
+    }
 
     private void notDashing()
     {
