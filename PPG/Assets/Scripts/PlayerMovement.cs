@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             //isDashing = true;
             isDashCooldown = true;
+            DisallowMovement();
             Invoke("removeDashCooldown", cooldownDashTime);
             coroutine = StopPlayerPositionUntilSecondsThenDoDash(2.0f);
             StartCoroutine(coroutine);
@@ -80,7 +81,15 @@ public class PlayerMovement : MonoBehaviour {
         if (isDashing)
         {
             DisallowMovement();
-            rb.velocity = transform.right * dashSpeed * Time.fixedDeltaTime;
+            if (transform.localScale.x > 0)
+            {
+                rb.velocity = transform.right * dashSpeed * Time.fixedDeltaTime;
+            }
+            else
+            {
+                rb.velocity = transform.right * -dashSpeed * Time.fixedDeltaTime;
+            }
+                
             Invoke("notDashing", dashTime);
         }
 
@@ -147,6 +156,7 @@ public class PlayerMovement : MonoBehaviour {
         while (true)
         {
             DisallowMovement();
+            move = 0;
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             yield return new WaitForSeconds(waitTime);
             isDashing = true;
