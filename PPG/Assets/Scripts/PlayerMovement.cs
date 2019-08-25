@@ -7,11 +7,15 @@ public class PlayerMovement : MonoBehaviour {
     public float runSpeed = 400;
     public float jumpForce = 400;
     public Collider2D GroundPlayer;
-
+    public float dashSpeed = 150f;
+    public float cooldownDashTime = 3f;
+    public float dashTime = 0.8f;
 
     bool facingRight = true;
     bool isJumping = false;
     bool collision = false;
+    bool isDashing = false;
+    bool isDashCooldown = false;
     bool allowFall = false;
 
     public static bool allowmovement = false;
@@ -19,7 +23,9 @@ public class PlayerMovement : MonoBehaviour {
     float move;
     float jump;
     float fall;
+    float dash;
     float stepTime = 0f;
+
 
     private Rigidbody2D rb;
 
@@ -27,29 +33,58 @@ public class PlayerMovement : MonoBehaviour {
 
     private SoundManagerScript soundManager;
 
+    private IEnumerator coroutine;
+
     // Start is called before the first frame update
-    void Start(){
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         soundManager = SoundManagerScript.instance;
     }
 
-    
+
     // Update is called once per frame
-    void Update(){
+    void Update() {
         if (allowmovement) {
 
             move = Input.GetAxisRaw("Horizontal");
             jump = Input.GetAxisRaw("Jump");
             fall = Input.GetAxisRaw("Fall");
-
+            dash = Input.GetAxisRaw("Dash");
             animator.SetFloat("Speed", Mathf.Abs(move));
         }
 
     }
 
 
-    private void FixedUpdate(){
-        rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
+    private void FixedUpdate() {
+
+        if (move != 0 && !isDashing)
+        {
+            rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
+        }
+
+        if (move == 0 && !isDashing)
+        {
+            rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
+        }
+
+        if(dash != 0 && !isDashCooldown)
+        {
+            //isDashing = true;
+            isDashCooldown = true;
+            Invoke("removeDashCooldown", cooldownDashTime);
+            coroutine = StopPlayerPositionUntilSecondsThenDoDash(2.0f);
+            StartCoroutine(coroutine);
+        }
+
+        if (isDashing)
+        {
+            DisallowMovement();
+            rb.velocity = transform.right * dashSpeed * Time.fixedDeltaTime;
+            Invoke("notDashing", dashTime);
+        }
+
+        //rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
 
         if(move != 0 && allowmovement && (Time.time - stepTime > 0.5f) && collision && soundManager != null){ /*Deletar soundManager != null posteriormente*/
             soundManager.PlaySound("RunSound");
@@ -81,7 +116,45 @@ public class PlayerMovement : MonoBehaviour {
 
 
     }
+    /*
+    private bool isDashCooldown()
+    {
+        if (Time.time > nextDashTime)
+        { 
+            nextDashTime = Time.time + cooldownDashTime;
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 
+    }*/
+
+    private void notDashing()
+    {
+        AllowMovement();
+        isDashing = false;
+    }
+
+    private void removeDashCooldown()
+    {
+        isDashCooldown = false;
+    }
+
+    private IEnumerator StopPlayerPositionUntilSecondsThenDoDash(float waitTime)
+    {
+        while (true)
+        {
+            DisallowMovement();
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            yield return new WaitForSeconds(waitTime);
+            isDashing = true;
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            yield break;
+        }
+    }
 
     private void Flip(float move){
         if (move > 0 && !facingRight || move < 0 && facingRight){
