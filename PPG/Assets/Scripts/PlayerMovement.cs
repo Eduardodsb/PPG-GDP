@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour {
         while (true)
         {
             DisallowMovement();
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             yield return new WaitForSeconds(waitTime);
             isDashing = true;
             rb.constraints = RigidbodyConstraints2D.None;
