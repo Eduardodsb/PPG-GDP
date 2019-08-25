@@ -6,10 +6,13 @@ public class PlayerMovement : MonoBehaviour {
 
     public float runSpeed = 400;
     public float jumpForce = 400;
+    public Collider2D GroundPlayer;
+
 
     bool facingRight = true;
     bool isJumping = false;
     bool collision = false;
+
 
     public static bool allowmovement = false;
 
@@ -29,7 +32,7 @@ public class PlayerMovement : MonoBehaviour {
         soundManager = SoundManagerScript.instance;
     }
 
-
+    
     // Update is called once per frame
     void Update(){
         if (allowmovement) {
@@ -46,7 +49,7 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate(){
         rb.velocity = new Vector2(runSpeed * move * Time.fixedDeltaTime, rb.velocity.y);
 
-        if(move != 0 && allowmovement && (Time.time - stepTime > 0.5f) && soundManager != null){ /*Deletar soundManager != null posteriormente*/
+        if(move != 0 && allowmovement && (Time.time - stepTime > 0.5f) && collision && soundManager != null){ /*Deletar soundManager != null posteriormente*/
             soundManager.PlaySound("RunSound");
             stepTime = Time.time;
         }
@@ -99,12 +102,12 @@ public class PlayerMovement : MonoBehaviour {
         allowmovement = false;
     }
 
-
+   
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.gameObject.name);
-
-        if (collision.gameObject.CompareTag("Ground") )
+   
+        //Debug.Log(collision.IsTouching(GroundPlayer));
+        if (collision.gameObject.CompareTag("Ground") && collision.gameObject.GetComponent<Collider2D>().IsTouching(this.GetComponent<CircleCollider2D>()))
         {
             this.collision = true;
             animator.SetBool("Down", false);
@@ -112,15 +115,14 @@ public class PlayerMovement : MonoBehaviour {
             isJumping = false;
             rb.velocity = Vector2.zero;
             //rb.angularVelocity = 0f;
-
         }
 
     }
 
+    
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Ground")
-        {
+        if (collision.collider.tag == "Ground"){
             this.collision = false;
         }
     }
