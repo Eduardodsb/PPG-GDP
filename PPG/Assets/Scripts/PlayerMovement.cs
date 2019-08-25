@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float runSpeed = 400;
-    public float jumpForce = 400;
-    public Collider2D GroundPlayer;
+    public float jumpForce = 300;
+   /* public float shortJumpForce = 150;
+    public float longJumpForce = 200;*/
     public float dashSpeed = 150f;
     public float cooldownDashTime = 3f;
     public float dashTime = 0.8f;
+    public float dashWaitTime = 0.5f;
 
     bool facingRight = true;
     bool isJumping = false;
@@ -22,6 +24,10 @@ public class PlayerMovement : MonoBehaviour {
 
     float move;
     float jump;
+   // bool jumpUp;
+   // bool jumpDown;
+   // double timeJumpUp;
+   // double timeJumpDown;
     float fall;
     float dash;
     float stepTime = 0f;
@@ -45,9 +51,10 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (allowmovement) {
-
             move = Input.GetAxisRaw("Horizontal");
-            jump = Input.GetAxisRaw("Jump");
+            jump = Input.GetAxisRaw("Jump"); /*Ser deletado - não utilizado*/
+            // jumpUp = Input.GetButtonUp("Jump");
+           //  jumpDown = Input.GetButtonDown("Jump");
             fall = Input.GetAxisRaw("Fall");
             dash = Input.GetAxisRaw("Dash");
             animator.SetFloat("Speed", Mathf.Abs(move));
@@ -74,7 +81,7 @@ public class PlayerMovement : MonoBehaviour {
             isDashCooldown = true;
             DisallowMovement();
             Invoke("removeDashCooldown", cooldownDashTime);
-            coroutine = StopPlayerPositionUntilSecondsThenDoDash(2.0f);
+            coroutine = StopPlayerPositionUntilSecondsThenDoDash(dashWaitTime);
             StartCoroutine(coroutine);
         }
 
@@ -104,15 +111,41 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         Flip(move);
-
         if (jump != 0){
             Jump();
         }
+        /* //Pulo Daniel
+                if (jumpUp == true)
+                {
+                    Debug.Log("up" + jumpUp);
+                    timeJumpUp = Time.time;
+                }
 
-        if(fall != 0 && allowFall){
+                if (jumpDown == true)
+                {
+                    Debug.Log("down" + jumpDown);
+                    timeJumpDown = Time.time;
+                }
+
+                //  Debug.Log(timeJumpUp - timeJumpDown);
+
+                if (jumpUp && (timeJumpUp - timeJumpDown) <= 0.25f)
+                {
+                    //Debug.Log("jump curto");
+                    Jump(shortJumpForce);
+                }
+
+                if (jumpUp && (timeJumpUp - timeJumpDown) > 0.25f)
+                {
+                    //Debug.Log("jump longo");
+                    Jump(longJumpForce);
+                }
+        */
+
+        if (fall != 0 && allowFall){
             Fall();
         }
-
+        
         if (rb.velocity.y > 0.5 && !collision){
             animator.SetBool("Up", true);
             animator.SetBool("Down", false);
@@ -143,6 +176,7 @@ public class PlayerMovement : MonoBehaviour {
     private void notDashing()
     {
         AllowMovement();
+        animator.SetBool("Dash", false);
         isDashing = false;
     }
 
@@ -158,6 +192,9 @@ public class PlayerMovement : MonoBehaviour {
             DisallowMovement();
             move = 0;
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            animator.SetBool("Dash", true);
+            animator.SetBool("Up", false);
+            animator.SetBool("Down", false);
             yield return new WaitForSeconds(waitTime);
             isDashing = true;
             rb.constraints = RigidbodyConstraints2D.None;
@@ -174,7 +211,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-    private void Jump(){
+    private void Jump(/*float jumpForce*/){
         if (!isJumping){
             isJumping = true;
             rb.AddForce(new Vector2(0f, jumpForce));

@@ -1616,8 +1616,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 70
-  jumpForce: 150
+  shortJumpForce: 150
+  longJumpForce: 200
   GroundPlayer: {fileID: 0}
+  dashSpeed: 150
+  cooldownDashTime: 3
+  dashTime: 0.8
   animator: {fileID: 781991620}
 --- !u!114 &781991619
 MonoBehaviour:
