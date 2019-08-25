@@ -1107,7 +1107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.60739934, y: -4.918, z: -33.283913}
+  m_LocalPosition: {x: -0.60716903, y: -4.918, z: -33.283913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1805,6 +1805,7 @@ GameObject:
   - component: {fileID: 1039483483}
   - component: {fileID: 1039483482}
   - component: {fileID: 1039483486}
+  - component: {fileID: 1039483485}
   m_Layer: 0
   m_Name: PlatformTilemap
   m_TagString: Ground
@@ -1837,7 +1838,7 @@ TilemapCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 031c68c97acef2848807f9206c3c6ae2, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -2137,6 +2138,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!251 &1039483485
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039483480}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!114 &1039483486
 MonoBehaviour:
   m_ObjectHideFlags: 0

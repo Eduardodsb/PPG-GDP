@@ -12,12 +12,13 @@ public class PlayerMovement : MonoBehaviour {
     bool facingRight = true;
     bool isJumping = false;
     bool collision = false;
-
+    bool allowFall = false;
 
     public static bool allowmovement = false;
 
     float move;
     float jump;
+    float fall;
     float stepTime = 0f;
 
     private Rigidbody2D rb;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 
             move = Input.GetAxisRaw("Horizontal");
             jump = Input.GetAxisRaw("Jump");
+            fall = Input.GetAxisRaw("Fall");
 
             animator.SetFloat("Speed", Mathf.Abs(move));
         }
@@ -61,6 +63,10 @@ public class PlayerMovement : MonoBehaviour {
 
         if (jump != 0){
             Jump();
+        }
+
+        if(fall != 0 && allowFall){
+            Fall();
         }
 
         if (rb.velocity.y > 0.5 && !collision){
@@ -94,6 +100,19 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private void Fall(){
+        if (this.GetComponent<BoxCollider2D>().enabled == false){
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            this.GetComponent<CircleCollider2D>().enabled = true;
+        }
+        else{
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<CircleCollider2D>().enabled = false;
+            Invoke("Fall", 0.4f);
+        }
+
+    }
+
     public void AllowMovement(){
         allowmovement = true;
     }
@@ -117,6 +136,10 @@ public class PlayerMovement : MonoBehaviour {
             //rb.angularVelocity = 0f;
         }
 
+        if (collision.gameObject.GetComponentInParent<PlatformEffector2D>()){
+            allowFall = true;
+        }
+
     }
 
     
@@ -125,6 +148,11 @@ public class PlayerMovement : MonoBehaviour {
         if (collision.collider.tag == "Ground"){
             this.collision = false;
         }
+        
+        if (collision.gameObject.GetComponentInParent<PlatformEffector2D>()){
+            allowFall = false;
+        }
+
     }
 
 }
