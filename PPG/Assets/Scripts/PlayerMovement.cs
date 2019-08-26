@@ -272,7 +272,12 @@ public class PlayerMovement : MonoBehaviour {
         allowmovement = false;
     }
 
-   
+    private void OnTriggerEnter2D(Collider2D collision){
+        if (collision.gameObject.CompareTag("Ground") && this.GetComponent<Rigidbody2D>().velocity.y < 0.1){
+            soundManager.PlaySound("OnLandSound");
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
    
