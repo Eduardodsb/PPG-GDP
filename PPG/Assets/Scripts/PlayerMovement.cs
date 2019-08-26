@@ -280,6 +280,12 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision){
+        if (collision.gameObject.CompareTag("Ground")){
+            soundManager.StopSound("RunSound");
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
    
