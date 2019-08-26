@@ -120,6 +120,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             isSpecialCooldown = true;
             Invoke("removeSpecialCooldown", cooldownSpecialTime);
+            //rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0f, specialForce));
             Instantiate(specialAttackObject, lauchnSpecialAttack.position, Quaternion.identity);
         }
