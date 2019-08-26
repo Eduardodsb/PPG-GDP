@@ -1342,6 +1342,11 @@ MonoBehaviour:
     loop: 0
     volume: 0.1
     audiosrc: {fileID: 0}
+  - name: OnLandSound
+    clip: {fileID: 8300000, guid: c5eb763b4cb37364aa46ff5b3d4c138f, type: 3}
+    loop: 0
+    volume: 0.1
+    audiosrc: {fileID: 0}
 --- !u!114 &1574619162
 MonoBehaviour:
   m_ObjectHideFlags: 0
