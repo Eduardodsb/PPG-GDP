@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour {
    // bool jumpDown;
    // double timeJumpUp;
    // double timeJumpDown;
-    float fall;
+    bool fall;
     float dash;
     bool special;
     float stepTime = 0f;
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
             // jumpUp = Input.GetButtonUp("Jump");
             //  jumpDown = Input.GetButtonDown("Jump");
             special = Input.GetButtonDown("SpecialAttack");
-            fall = Input.GetAxisRaw("Fall");
+            fall = Input.GetButtonDown("Fall");
             dash = Input.GetAxisRaw("Dash");
             animator.SetFloat("Speed", Mathf.Abs(move));
         }
@@ -167,7 +167,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
         */
 
-        if (fall != 0 && allowFall){
+        if (fall && allowFall){
             Fall();
         }
         
@@ -255,6 +255,7 @@ public class PlayerMovement : MonoBehaviour {
         if (this.GetComponent<BoxCollider2D>().enabled == false){
             this.GetComponent<BoxCollider2D>().enabled = true;
             this.GetComponent<CircleCollider2D>().enabled = true;
+            allowFall = false;
         }
         else{
             this.GetComponent<BoxCollider2D>().enabled = false;
