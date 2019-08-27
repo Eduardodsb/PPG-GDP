@@ -63,7 +63,7 @@ public class Script : MonoBehaviour
          
 
         }
-
+       // Debug.Log("Aqui" + story.currentChoices.Count);
         if (story.currentChoices.Count == 0)
         {
             GameObject.Find("DialogPanel").SetActive(false);
@@ -76,7 +76,7 @@ public class Script : MonoBehaviour
     void OnClickChoiceButton(Choice choice)
     {
         story.ChooseChoiceIndex(choice.index);
-       
+        //Debug.Log(story.currentChoices.Count);
         cont++;
         if (cont == 2)
         {
