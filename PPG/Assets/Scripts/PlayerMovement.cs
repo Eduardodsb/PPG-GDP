@@ -106,7 +106,6 @@ public class PlayerMovement : MonoBehaviour {
             {
                 rb.velocity = transform.right * -dashSpeed * Time.fixedDeltaTime;
             }
-                
             Invoke("notDashing", dashTime);
         }
 
@@ -226,7 +225,7 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetBool("Dash", true);
             animator.SetBool("Up", false);
             animator.SetBool("Down", false);
-            soundManager.PlaySound("DashSound");
+            if (soundManager != null) { soundManager.PlaySound("DashSound"); }
             yield return new WaitForSeconds(waitTime);
             isDashing = true;
             rb.constraints = RigidbodyConstraints2D.None;
