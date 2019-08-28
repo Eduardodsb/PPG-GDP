@@ -310,6 +310,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (collision.collider.tag == "Ground"){
             this.collision = false;
+            isJumping = true;
         }
         
         if (collision.gameObject.GetComponentInParent<PlatformEffector2D>()){

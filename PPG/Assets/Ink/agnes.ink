@@ -1,6 +1,14 @@
 -> sala_inicial
 === sala_inicial ===
 
+//tela preta
+
+Eu te falei que não era pra misturar essas ervas, sapo. Não importa o que a grande avó te disse. Não, não era pra misturar... eu te falei...
+
+* [Comer o sapo]
+
+- Hein? O quê?
+
 //luz fraca
 
 Nossa... que sonho bizarro. Não aguento mais essa semana. Me levem pra longe, por favor. 
@@ -13,7 +21,7 @@ A prova de encantamentos! É daqui a pouco! Ai, deusa, que desgraça.
 
 * Tenho que me levantar[!] 
 
-<> e me arrumar correndo. E depois ainda tem o trabalho de botânica, e aquela encomenda das essências... Desse jeito vou acabar reprovando. 
+- <> e me arrumar correndo. E depois ainda tem o trabalho de botânica, e aquela encomenda das essências... Desse jeito vou acabar reprovando. 
 
 * [Acender as luzes]
 
@@ -22,10 +30,10 @@ A prova de encantamentos! É daqui a pouco! Ai, deusa, que desgraça.
 - O quê? Isso parece magia. 
 Tem alguma coisa estranha acontecendo. Melhor ter cuidado. Vou precisar me vestir.
 
-* [...]
+* [...] -> END
+
 // gameplay da sala inicial. quando ela pega a roupa tem uma animação, mas nenhuma fala.
 
--> END
 
 === sala_central ===
 
@@ -36,19 +44,34 @@ Esse lugar tá com cheiro de fumaça. De coisa queimando.
 - Se for uma invocação, quer dizer que tem alguém aqui dentro. Ou é isso ou tem um portal sendo aberto. Mas pra onde?
 E por quem?
 
+* [...] -> END
+
 // quando ela percebe que a porta da rua está bloqueada
 
-Beleza. Seja lá quem for, você quer brigar? Vou pegar as ferramentas certas pra essa briga. Tantos anos presa estudando devem ter servido pra alguma coisa. 
-Antes isso do que uma prova.
+=== sala_central_parte_dois ===
+
+Beleza. Vocês querem brigar? 
+
+* Vamos fazer isso do jeito certo. 
+
+- Com as ferramentas certas. Tantos anos presa estudando devem ter servido pra alguma coisa. 
+E antes isso do que uma prova.
+
+
+* [...] -> END
 
 // resto do gameplay da sala, passa por outros obstáculos, etc.
 
--> sala_do_poder
 
 === sala_do_poder ===
 
 Que coisa é essa… Isso é uma fenda? Uma fenda das dimensões? 
-Grande avó... Espero que não seja o que eu acho que é. 
+
+* Grande avó... 
+
+- Espero que não seja o que eu acho que é. 
+
+* [...] -> END
 
 // passa pelo nível, pega o poder
 
@@ -74,18 +97,18 @@ Tenho que descobrir quem foi e o que ele quer, ou isso vai se espalhar e vai ser
 HORROR: Agnes.
 * ["Quem é você?"]
 
-- <> "Qu. Mas! Qu......... Quem??"
+- "Qu. Mas! Qu......... Quem??"
 HORROR: Agnes é um nome bonito. Gostei dele. Agnes, não procure lutar. Eu sou todas as coisas de que você tem medo em uma massa só. Tudo que você detesta, tudo que te causa nojo ou repulsa e tudo que te paralisa. 
 Você já perdeu, mas isso não quer dizer a morte. Quer dizer só uma troca.
 
 * ["Você não me conhece!"]
-- <> "......."
+- "......."
 HORROR: Eu fico com o seu mundo e você fica aqui no meu. Um dia você pode encontrar uma outra terra e tomar posse dela. É um dos muitos ciclos do cosmos. Não tem como evitar. 
 Seria como... Como a árvore que cai. E ao morrer alimenta um milhão de fungos e bactérias.
 
 * ["Espera um pouco! Como assim?"]
 
-- <> "!!!!!"
+- "!!!!!"
 HORROR: E você, como essa árvore, não foi sequer escolhida. Eu vim aqui como poderia ter ido a qualquer outra cidade. A pessoa que você é não importa. 
 O que eu quero é Agnes. E um corpo. Que vai ser o seu.
 
