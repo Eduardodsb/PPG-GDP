@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
      public float longJumpForce = 200;*/
     public float specialForce = 50f;
     public float dashSpeed = 450f;
-    public float cooldownDashTime = 3f;
+    public float cooldownDashTime = 2f;
     public float dashTime = 0.25f;
     public float dashWaitTime = 0.25f;
 
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             isSpecialCooldown = true;
             Invoke("removeSpecialCooldown", cooldownSpecialTime);
-            //rb.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0f, specialForce));
             Instantiate(specialAttackObject, lauchnSpecialAttack.position, Quaternion.identity);
         }
