@@ -1,8 +1,6 @@
 -> sala_inicial
 === sala_inicial ===
 
-//luz fraca
-
 Nossa... que sonho bizarro. Não aguento mais essa semana. Me levem pra longe, por favor. 
 E pior que ainda é, vamos ver... quarta-feira? É, isso mesmo.
 
@@ -10,10 +8,8 @@ E pior que ainda é, vamos ver... quarta-feira? É, isso mesmo.
 
 - QUARTA-FEIRA???
 A prova de encantamentos! É daqui a pouco! Ai, deusa, que desgraça. 
-
-* Tenho que me levantar[!] 
-
-<> e me arrumar correndo. E depois ainda tem o trabalho de botânica, e aquela encomenda das essências... Desse jeito vou acabar reprovando. 
+E depois ainda tem o trabalho de botânica que eu nem comecei ainda, e aquela encomenda das essências... 
+Tenho que levantar e me arrumar correndo. Desse jeito vou acabar reprovando. 
 
 * [Acender as luzes]
 
@@ -49,19 +45,19 @@ Antes isso do que uma prova.
 
 Que coisa é essa… Isso é uma fenda? Uma fenda das dimensões? 
 Grande avó... Espero que não seja o que eu acho que é. 
+Força da lua, força das matas...
 
 // passa pelo nível, pega o poder
 
 Aha! Agora isso aqui ficou sério! 
-Plena quarta-feira e você vem fazer uma bagunça na minha casa... arrumei isso aqui ontem... tenho mais coisa pra fazer... 
+Plena quarta-feira e você vem fazer uma bagunça na minha casa... arrumei isso aqui ontem... tenho mais coisa pra fazer... uma prova de encantamentos, dois seminários... sem tempo nenhum pra isso...
 
 -> sala_central_tomada
 
 === sala_central_tomada ===
 
 Eu conheço isso. É a terra oculta. Tem alguma coisa no livro de história da magia. 
-* É um mundo em que as coisas[...] 
-<> ainda não têm um corpo, uma identidade, e ficam perambulando à procura disso. Uma terra que vem antes do nosso mundo, logo antes. 
+É um mundo em que as coisas ainda não têm um corpo, uma identidade, e ficam perambulando à procura disso. Uma terra que vem antes do nosso mundo, logo antes. 
 * Alguém abriu uma passagem. 
 
 - <> Se me lembro bem dos livros, isso nunca acontece por acaso.
