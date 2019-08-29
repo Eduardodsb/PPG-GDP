@@ -67,6 +67,7 @@ public class Script : MonoBehaviour
         if (story.currentChoices.Count == 0)
         {
             GameObject.Find("DialogPanel").SetActive(false);
+            GameObject.Find("DialogPanelImage").SetActive(false);
             GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
         }
 
