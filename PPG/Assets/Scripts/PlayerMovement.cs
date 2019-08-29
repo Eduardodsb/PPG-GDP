@@ -277,6 +277,27 @@ public class PlayerMovement : MonoBehaviour {
         if (collision.gameObject.CompareTag("Ground") && this.GetComponent<Rigidbody2D>().velocity.y < 0.1){
             soundManager.PlaySound("OnLandSound");
         }
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Agnes foi pras cucuias");
+            //soundManager.PlaySound("AgnesDeathSound");
+            //animator.SetBool("Death", true);
+            rb.simulated = false;
+            DisallowMovement();
+            Invoke("Respawn", 1f);
+
+        }
+
+    }
+
+
+    void Respawn()
+    {
+        transform.position = new Vector3(-2.086f, -5.187f, -23.28391f);
+        //animator.SetBool("Death", false);
+        rb.simulated = true;
+        AllowMovement();
     }
 
     private void OnTriggerExit2D(Collider2D collision){
