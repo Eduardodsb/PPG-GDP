@@ -1,14 +1,6 @@
 -> quarto
 === quarto ===
 
-//tela preta
-
-Eu te falei que não era pra misturar essas ervas, sapo. Não importa o que a grande avó te disse. Não, não era pra misturar... eu te falei...
-
-* [Comer o sapo]
-
-- Hein? O quê?
-
 //luz fraca
 
 Nossa... que sonho bizarro. Não aguento mais essa semana. Me levem pra longe, por favor. 

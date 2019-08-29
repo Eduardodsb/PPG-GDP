@@ -20067,7 +20067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65720f27afdf5a748a864dde92aa3689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONAsset: {fileID: 4900000, guid: 1829943e2b71af74a9793d52e035253a, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: 077ab77ac7c7f4d42b8d472f51feeda1, type: 3}
   buttonPrefab: {fileID: 2832243615186190787, guid: 6306bc93dd63f3841ab064d24e0b4d2d,
     type: 3}
 --- !u!1 &2122100569

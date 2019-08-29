@@ -79,7 +79,7 @@ public class Script : MonoBehaviour
         story.ChooseChoiceIndex(choice.index);
         //Debug.Log(story.currentChoices.Count);
         cont++;
-        if (cont == 2)
+        if (cont == 3)
         {
             GameObject.Find("Light").GetComponent<Animator>().enabled = true;
         }
