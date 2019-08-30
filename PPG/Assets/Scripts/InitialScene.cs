@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InitialScene : MonoBehaviour{
 
+    public GameObject dialogPanel;
+    public GameObject dialogPanelImage;
+
     GameObject text1;
     GameObject text2;
     GameObject text3;
@@ -37,6 +40,8 @@ public class InitialScene : MonoBehaviour{
 
     public void AllowPlayer(){
         gameObject.SetActive(false);
+        dialogPanel.SetActive(true);
+        dialogPanelImage.SetActive(true);
         //GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
     }
 

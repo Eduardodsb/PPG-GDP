@@ -273,13 +273,22 @@ public class PlayerMovement : MonoBehaviour {
         allowmovement = false;
     }
 
+    void Respawn()
+    {
+        rb.velocity = Vector3.zero;
+        transform.position = new Vector3(-2.086f, -5.187f, -23.28391f);
+        //animator.SetBool("Death", false);
+        rb.simulated = true;
+        AllowMovement();
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.CompareTag("Ground") && this.GetComponent<Rigidbody2D>().velocity.y < 0.1){
             soundManager.PlaySound("OnLandSound");
         }
 
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
+        if (collision.gameObject.CompareTag("Obstacle")){
             Debug.Log("Agnes foi pras cucuias");
             //soundManager.PlaySound("AgnesDeathSound");
             //animator.SetBool("Death", true);
@@ -291,28 +300,17 @@ public class PlayerMovement : MonoBehaviour {
 
     }
 
-
-    void Respawn()
-    {
-        rb.velocity = Vector3.zero;
-        transform.position = new Vector3(-2.086f, -5.187f, -23.28391f);
-        //animator.SetBool("Death", false);
-        rb.simulated = true;
-        AllowMovement();
-    }
-
     private void OnTriggerExit2D(Collider2D collision){
         if (collision.gameObject.CompareTag("Ground")){
             soundManager.StopSound("RunSound");
+            isJumping = true;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
+    void OnCollisionEnter2D(Collision2D collision){
    
         //Debug.Log(collision.IsTouching(GroundPlayer));
-        if (collision.gameObject.CompareTag("Ground") && collision.gameObject.GetComponent<Collider2D>().IsTouching(this.GetComponent<CircleCollider2D>()))
-        {
+        if (collision.gameObject.CompareTag("Ground") && collision.gameObject.GetComponent<Collider2D>().IsTouching(this.GetComponent<CircleCollider2D>())){
             this.collision = true;
             animator.SetBool("Down", false);
             animator.SetBool("Up", false);
@@ -332,7 +330,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (collision.collider.tag == "Ground"){
             this.collision = false;
-            isJumping = true;
+            //isJumping = true;
         }
         
         if (collision.gameObject.GetComponentInParent<PlatformEffector2D>()){
