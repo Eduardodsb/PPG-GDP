@@ -294,6 +294,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Respawn()
     {
+        rb.velocity = Vector3.zero;
         transform.position = new Vector3(-2.086f, -5.187f, -23.28391f);
         //animator.SetBool("Death", false);
         rb.simulated = true;
