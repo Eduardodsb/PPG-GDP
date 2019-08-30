@@ -63,7 +63,7 @@ public class SoundManagerScript : MonoBehaviour
             }
         }
 
-        Debug.LogWarning("O nome " + _name + " não foi encontrado.");
+       // Debug.LogWarning("O nome " + _name + " não foi encontrado.");
     }
 
     public void StopSound(string _name){
