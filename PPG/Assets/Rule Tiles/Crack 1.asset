@@ -10,9 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: New Rule Tile
+  m_Name: Crack 1
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 0}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
-  m_TilingRules: []
+  m_TilingRules:
+  - m_Neighbors: 0000000000000000000000000000000000000000000000000000000000000000
+    m_Sprites:
+    - {fileID: 21300000, guid: 249c3460f9f69cb4db47459e58494070, type: 3}
+    - {fileID: 21300000, guid: f9bf17e3a0226a54e905279dbb3c23a1, type: 3}
+    - {fileID: 21300000, guid: 1f0ee5ac929701044bfdce932eea46d2, type: 3}
+    - {fileID: 21300000, guid: 1c5dfb45f4785ea48a59cb2601c86e84, type: 3}
+    - {fileID: 21300000, guid: d1bf1af3d08f53d429658f4343764d20, type: 3}
+    - {fileID: 21300000, guid: 713857ea93c83a040b0389307db98a4c, type: 3}
+    - {fileID: 21300000, guid: 6a276586002e11e4bb1dcf103f3127c9, type: 3}
+    - {fileID: 21300000, guid: af8b530738d454042a09ebe8aa8da57e, type: 3}
+    - {fileID: 21300000, guid: 4baa063efe1ca4a43835d1a274f97ae6, type: 3}
+    - {fileID: 21300000, guid: 595d60d38be34694fb68f4f2c157d083, type: 3}
+    - {fileID: 21300000, guid: 4c8391038bb061b4db64049b158161d5, type: 3}
+    - {fileID: 21300000, guid: 047c8774b8c96b24fa19e6b00af2c6f4, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_RuleTransform: 0
+    m_Output: 2
+    m_ColliderType: 1
+    m_RandomTransform: 0

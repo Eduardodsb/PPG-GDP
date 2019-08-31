@@ -15,4 +15,25 @@ MonoBehaviour:
   m_DefaultSprite: {fileID: 0}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
-  m_TilingRules: []
+  m_TilingRules:
+  - m_Neighbors: 0000000000000000000000000000000000000000000000000000000000000000
+    m_Sprites:
+    - {fileID: 21300000, guid: 6efacc18801c839408f930041fb213d7, type: 3}
+    - {fileID: 21300000, guid: 8e46dd35f981ed6408a4c0fbfd3c0a77, type: 3}
+    - {fileID: 21300000, guid: b1c7fd4878bfce5449597ef7dcd09552, type: 3}
+    - {fileID: 21300000, guid: 8dabe83b3697dd8479622d003d953180, type: 3}
+    - {fileID: 21300000, guid: e59a0a64a4326c24dbfdf6ff8b8de8ec, type: 3}
+    - {fileID: 21300000, guid: 8ef695089a8067d47b66693e5decfc86, type: 3}
+    - {fileID: 21300000, guid: 75c569f9bfb6ba94f913d86db666ee24, type: 3}
+    - {fileID: 21300000, guid: 5fab5bb8eb57b874da4e9a893c505dfb, type: 3}
+    - {fileID: 21300000, guid: 0c29a97bb803ead499ca09ff129a5065, type: 3}
+    - {fileID: 21300000, guid: 471227a316040374d860201dee0e3d49, type: 3}
+    - {fileID: 21300000, guid: 2f878312c81422648a90921199b9ca32, type: 3}
+    - {fileID: 21300000, guid: 1e807ac9ef1734e44b19036444aec972, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_RuleTransform: 0
+    m_Output: 2
+    m_ColliderType: 1
+    m_RandomTransform: 0

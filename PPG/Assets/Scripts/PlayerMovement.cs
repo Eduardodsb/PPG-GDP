@@ -256,8 +256,7 @@ public class PlayerMovement : MonoBehaviour {
             this.GetComponent<BoxCollider2D>().enabled = true;
             this.GetComponent<CircleCollider2D>().enabled = true;
             allowFall = false;
-        }
-        else{
+        }else{
             this.GetComponent<BoxCollider2D>().enabled = false;
             this.GetComponent<CircleCollider2D>().enabled = false;
             Invoke("Fall", 0.4f);
