@@ -3292,7 +3292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.548269, y: 2.7821388, z: -33.283913}
+  m_LocalPosition: {x: 9.37, y: 2.7821388, z: -33.283913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7228,7 +7228,7 @@ PrefabInstance:
     - target: {fileID: 4987109250222001651, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4987109250222001651, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
@@ -8968,7 +8968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1125341841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11405,7 +11405,7 @@ PrefabInstance:
     - target: {fileID: 4987109250222001651, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 4987109250222001651, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
@@ -14299,11 +14299,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3284445694023544925, guid: 3c9d577d5c8fd8b46914c20499d9051e,
-        type: 3}
-      propertyPath: m_AutoTiling
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -732565652803077948, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
       propertyPath: motionY
@@ -14322,6 +14317,11 @@ PrefabInstance:
     - target: {fileID: -732565652803077948, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
       propertyPath: velocidade.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284445694023544925, guid: 3c9d577d5c8fd8b46914c20499d9051e,
+        type: 3}
+      propertyPath: m_AutoTiling
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14982,7 +14982,7 @@ PrefabInstance:
     - target: {fileID: 4987109250222001651, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 4987109250222001651, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
