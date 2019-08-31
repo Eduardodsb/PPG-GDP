@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: Background Vortex
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 21300000, guid: c1a9c279d636e434f8a0925b39a3783c, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Neighbors: 0000000000000000000000000000000000000000000000000000000000000000
+    m_Sprites:
+    - {fileID: 21300000, guid: c1a9c279d636e434f8a0925b39a3783c, type: 3}
+    - {fileID: 21300000, guid: 1421e082db6d9ff46a36f18f1812ad81, type: 3}
+    - {fileID: 21300000, guid: 457a0b192198a1845a7426324660624d, type: 3}
+    - {fileID: 21300000, guid: cc05b7082de75e3469617c62969af789, type: 3}
+    - {fileID: 21300000, guid: 1248c5230b703954fa60b8e47c17984a, type: 3}
+    - {fileID: 21300000, guid: 6eb26e0cbda14264e8b721444301a563, type: 3}
+    - {fileID: 21300000, guid: 8ccceecc6e80f894ba18a1d9ba41774c, type: 3}
+    - {fileID: 21300000, guid: 23fdcd313f1ea1a4d9110108231fb835, type: 3}
+    - {fileID: 21300000, guid: 195954a4ebf25aa46b422fb67ee15e20, type: 3}
+    - {fileID: 21300000, guid: 22be3b2d9bf762f429e05044e0687268, type: 3}
+    - {fileID: 21300000, guid: c3af9501a7887cf4b8eb9579bbffa5ef, type: 3}
+    - {fileID: 21300000, guid: df954cd3cb729b646b4893f0f386ef8b, type: 3}
+    m_GameObject: {fileID: 0}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_RuleTransform: 0
+    m_Output: 2
+    m_ColliderType: 1
+    m_RandomTransform: 0
