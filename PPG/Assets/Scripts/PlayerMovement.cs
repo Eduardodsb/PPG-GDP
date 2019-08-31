@@ -322,7 +322,24 @@ public class PlayerMovement : MonoBehaviour {
             allowFall = true;
         }
 
+        if(collision.gameObject.name == "InteractableScenario")
+        {
+
+            if (transform.localScale.x < 0)
+            {             
+                transform.Translate(Vector3.right * Time.fixedDeltaTime * 1.4f, Space.World);
+            }
+            else
+            {
+                transform.Translate(Vector3.left * Time.fixedDeltaTime * 1.4f, Space.World);
+            }
+
+
+        }
+
     }
+
+
 
     
     private void OnCollisionExit2D(Collision2D collision)
