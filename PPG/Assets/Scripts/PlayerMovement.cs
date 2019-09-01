@@ -301,6 +301,8 @@ public void Paralyse()
     {
         rb.velocity = Vector3.zero;
         transform.position = checkpoint;
+        removeDashCooldown();
+        ///removeSpecialCooldown();
         //animator.SetBool("Death", false);
         rb.simulated = true;
         AllowMovement();
