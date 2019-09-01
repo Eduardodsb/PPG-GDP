@@ -7,13 +7,14 @@ using Ink.Runtime;
 public class Script : MonoBehaviour
 {
     public TextAsset inkJSONAsset;
-    private Story story;
+    static public Story story;
     public Button buttonPrefab;
     int cont = 0;
     int counter = 0;
+    static public Dictionary<string, int> sceneMap = new Dictionary<string, int>();
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         // Load the next story block
         story = new Story(inkJSONAsset.text);
@@ -63,12 +64,13 @@ public class Script : MonoBehaviour
          
 
         }
-       // Debug.Log("Aqui" + story.currentChoices.Count);
+        // Debug.Log("Aqui" + story.currentChoices.Count);
         if (story.currentChoices.Count == 0)
         {
             GameObject.Find("DialogPanel").SetActive(false);
             GameObject.Find("DialogPanelImage").SetActive(false);
             GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
+            GameObject.Find("Player").GetComponent<PlayerMovement>().Unparalyse();
         }
 
     }
@@ -101,13 +103,35 @@ public class Script : MonoBehaviour
     // Load and potentially return the next story block
     string getNextStoryBlock(){
 
-        //Redireciona para um bloco específico do ink apenas uma x
-      /*  if (counter == 0)
+
+        if (sceneMap.ContainsKey("vortex_1") && sceneMap["vortex_1"] == 0)
         {
-            story.ChoosePathString("sala_central");
-            counter++;
-        }*/
-        
+            GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+            GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
+            GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
+            story.ChoosePathString("vortex_1");
+            sceneMap["vortex_1"] += 1;
+        }
+
+        else
+        {
+            if (sceneMap.ContainsKey("sala_1") && sceneMap["sala_1"] == 0)
+            {
+                GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+                GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
+                GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
+                story.ChoosePathString("sala_1");
+                sceneMap["sala_1"] += 1;
+            }
+        }
+
+        //Redireciona para um bloco específico do ink apenas uma x
+        /*  if (counter == 0)
+          {
+              story.ChoosePathString("sala_central");
+              counter++;
+          }*/
+
         string text = "";
         //text += story.Continue();
           while (story.canContinue){

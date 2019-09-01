@@ -264,6 +264,17 @@ public class PlayerMovement : MonoBehaviour {
 
     }
 
+    public void Paralyse()
+    {
+        rb.velocity = Vector3.zero;
+        rb.simulated = false;
+    }
+
+    public void Unparalyse()
+    {
+        rb.simulated = true;
+    }
+
     public void AllowMovement(){
         allowmovement = true;
     }
