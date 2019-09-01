@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour {
     float dash;
     bool special;
     float stepTime = 0f;
+    Vector3 checkpoint = new Vector3(-2.086f, -5.187f, -23.28391f);
 
 
     private Rigidbody2D rb;
@@ -287,7 +288,7 @@ public void Paralyse()
     void Respawn()
     {
         rb.velocity = Vector3.zero;
-        transform.position = new Vector3(-2.086f, -5.187f, -23.28391f);
+        transform.position = checkpoint;
         //animator.SetBool("Death", false);
         rb.simulated = true;
         AllowMovement();
@@ -317,6 +318,12 @@ public void Paralyse()
             DisallowMovement();
             Invoke("Respawn", 1f);
 
+        }
+
+        if (collision.gameObject.CompareTag("CheckpointCollider"))
+        {
+            checkpoint = collision.gameObject.transform.position;
+            collision.gameObject.SetActive(false);
         }
 
 

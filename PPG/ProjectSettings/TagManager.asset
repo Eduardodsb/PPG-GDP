@@ -8,6 +8,7 @@ TagManager:
   - Cam
   - Obstacle
   - EndGameCollider
+  - CheckpointCollider
   layers:
   - Default
   - TransparentFX
