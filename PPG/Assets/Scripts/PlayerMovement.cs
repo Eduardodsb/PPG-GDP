@@ -327,11 +327,11 @@ public class PlayerMovement : MonoBehaviour {
 
             if (transform.localScale.x < 0)
             {             
-                transform.Translate(Vector3.right * Time.fixedDeltaTime * 1.4f, Space.World);
+                transform.Translate(Vector3.right/0.5f * Time.fixedDeltaTime * 1.4f, Space.World);
             }
             else
             {
-                transform.Translate(Vector3.left * Time.fixedDeltaTime * 1.4f, Space.World);
+                transform.Translate(Vector3.left/0.5f * Time.fixedDeltaTime * 1.4f, Space.World);
             }
 
 
