@@ -264,7 +264,7 @@ public class PlayerMovement : MonoBehaviour {
 
     }
 
-    public void Paralyse()
+public void Paralyse()
     {
         rb.velocity = Vector3.zero;
         rb.simulated = false;
@@ -274,6 +274,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         rb.simulated = true;
     }
+
 
     public void AllowMovement(){
         allowmovement = true;
@@ -307,6 +308,17 @@ public class PlayerMovement : MonoBehaviour {
             Invoke("Respawn", 1f);
 
         }
+
+        if (collision.gameObject.CompareTag("EndGameCollider")){
+            Debug.Log("Agnes foi pras cucuias");
+            //soundManager.PlaySound("AgnesDeathSound");
+            //animator.SetBool("Death", true);
+            rb.simulated = false;
+            DisallowMovement();
+            Invoke("Respawn", 1f);
+
+        }
+
 
     }
 
