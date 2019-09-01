@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public Transform lauchnSpecialAttack;
     public GameObject specialAttackObject;
+    public Collider2D[] colliders;
 
 
     bool facingRight = true;
@@ -88,6 +89,11 @@ public class PlayerMovement : MonoBehaviour {
 
         if(dash != 0 && !isDashCooldown)
         {
+            colliders[0].enabled = true;
+            for (int i = 1; i < colliders.Length; i++)
+            {
+                colliders[i].enabled = false;
+            }
             dash = 0;
             isDashCooldown = true;
             DisallowMovement();
@@ -209,6 +215,12 @@ public class PlayerMovement : MonoBehaviour {
         AllowMovement();
         animator.SetBool("Dash", false);
         isDashing = false;
+        colliders[0].enabled = false;
+        for (int i = 1; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = true;
+        }
+
     }
 
     private void removeDashCooldown()
