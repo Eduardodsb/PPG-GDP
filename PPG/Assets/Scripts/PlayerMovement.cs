@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (allowmovement) {
+        if (allowmovement && rb.simulated) {
             move = Input.GetAxisRaw("Horizontal");
             jump = Input.GetAxisRaw("Jump"); /*Ser deletado - não utilizado*/
             // jumpUp = Input.GetButtonUp("Jump");
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if(dash != 0 && !isDashCooldown)
         {
-            //isDashing = true;
+            dash = 0;
             isDashCooldown = true;
             DisallowMovement();
             Invoke("removeDashCooldown", cooldownDashTime);

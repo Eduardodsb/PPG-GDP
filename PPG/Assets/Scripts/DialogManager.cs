@@ -24,14 +24,14 @@ public class DialogManager : MonoBehaviour
 
 
 
-    Dictionary<int, GameObject> dialogMap = new Dictionary<int, GameObject>();
+    Dictionary<GameObject, string> dialogMap = new Dictionary<GameObject, string>();
 
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < dialogs.Length; i++)
         {
-            dialogMap.Add(i, dialogs[i].objectDialog);
+            dialogMap.Add(dialogs[i].objectDialog, dialogs[i].name);
         }
     }
 
@@ -44,19 +44,25 @@ public class DialogManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (dialogMap.ContainsValue(collision.gameObject))
+        if (dialogMap.ContainsKey(collision.gameObject))
         {
-            if (!Script.sceneMap.ContainsKey(collision.gameObject.name))
-            {
-                Debug.Log("teste");
+            //if (!Script.sceneMap.ContainsKey(collision.gameObject.name))
+            //{
+            dialogPanel.SetActive(true);
+            dialogPanelImage.SetActive(true);
 
-                dialogPanel.SetActive(true);
-                dialogPanelImage.SetActive(true);
-                Script.sceneMap.Add(collision.gameObject.name, 0);
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
-                Script teste = dialogPanel.GetComponent<Script>();
-                teste.Start();
-            }
+            Script.sceneNames = dialogMap[collision.gameObject];
+
+            //Script.sceneMap.Add(collision.gameObject.name, 0);
+
+            Script teste = dialogPanel.GetComponent<Script>();
+            teste.Start();
+
+            //Script.sceneNames = "";
+
+            //}
 
 
 

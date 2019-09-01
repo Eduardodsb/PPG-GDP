@@ -11,7 +11,8 @@ public class Script : MonoBehaviour
     public Button buttonPrefab;
     int cont = 0;
     int counter = 0;
-    static public Dictionary<string, int> sceneMap = new Dictionary<string, int>();
+    //static public Dictionary<string, int> sceneMap = new Dictionary<string, int>();
+    static public string sceneNames;
 
     // Start is called before the first frame update
     public void Start()
@@ -103,36 +104,54 @@ public class Script : MonoBehaviour
     // Load and potentially return the next story block
     string getNextStoryBlock(){
 
-
-        if (sceneMap.ContainsKey("vortex_1") && sceneMap["vortex_1"] == 0)
+        
+        if (sceneNames != null)
         {
             GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
             GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
             GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
-            story.ChoosePathString("vortex_1");
-            sceneMap["vortex_1"] += 1;
+            story.ChoosePathString(sceneNames);
+            sceneNames = null;
         }
 
-        else
-        {
-            if (sceneMap.ContainsKey("sala_1") && sceneMap["sala_1"] == 0)
+
+
+            /*
+            if (sceneMap.ContainsKey("vortex_1") && sceneMap["vortex_1"] == 0)
             {
                 GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
                 GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
                 GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
-                story.ChoosePathString("sala_1");
-                sceneMap["sala_1"] += 1;
+                story.ChoosePathString("vortex_1");
+                sceneMap["vortex_1"] += 1;
+                //sceneMap.Remove();
+
+
             }
-        }
 
-        //Redireciona para um bloco específico do ink apenas uma x
-        /*  if (counter == 0)
-          {
-              story.ChoosePathString("sala_central");
-              counter++;
-          }*/
+            else
+            {
+                if (sceneMap.ContainsKey("sala_1") && sceneMap["sala_1"] == 0)
+                {
+                    GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+                    GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
+                    GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
+                    story.ChoosePathString("sala_1");
+                    sceneMap["sala_1"] += 1;
+                }
+            }
+            */
 
-        string text = "";
+
+
+            //Redireciona para um bloco específico do ink apenas uma x
+            /*  if (counter == 0)
+              {
+                  story.ChoosePathString("sala_central");
+                  counter++;
+              }*/
+
+            string text = "";
         //text += story.Continue();
           while (story.canContinue){
               text += story.Continue();
