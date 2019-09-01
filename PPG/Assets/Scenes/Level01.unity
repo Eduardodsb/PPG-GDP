@@ -4762,7 +4762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.3722315, y: 2.9900002, z: -33.283913}
+  m_LocalPosition: {x: 9.1, y: 2.99, z: -33.283913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14507,10 +14507,11 @@ GameObject:
   - component: {fileID: 781991619}
   - component: {fileID: 781991620}
   - component: {fileID: 781991621}
-  - component: {fileID: 781991624}
   - component: {fileID: 781991622}
+  - component: {fileID: 781991624}
   - component: {fileID: 781991623}
   - component: {fileID: 781991625}
+  - component: {fileID: 781991626}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14605,6 +14606,11 @@ MonoBehaviour:
   lauchnSpecialAttack: {fileID: 1831291538}
   specialAttackObject: {fileID: 4141330876234076859, guid: 5b40596add4008047af2216458ccbebe,
     type: 3}
+  colliders:
+  - {fileID: 781991626}
+  - {fileID: 781991622}
+  - {fileID: 781991624}
+  - {fileID: 781991623}
   animator: {fileID: 781991620}
 --- !u!114 &781991619
 MonoBehaviour:
@@ -14745,6 +14751,32 @@ MonoBehaviour:
     objectDialog: {fileID: 651464374}
   - name: vortex_1
     objectDialog: {fileID: 1943281905}
+--- !u!61 &781991626
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781991615}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.026219234, y: 0.023160677}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.4, y: 0.4}
+    newSize: {x: 0.4, y: 0.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3848422, y: 0.1956627}
+  m_EdgeRadius: 0
 --- !u!1001 &782535942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79634,11 +79666,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3284445694023544925, guid: 3c9d577d5c8fd8b46914c20499d9051e,
-        type: 3}
-      propertyPath: m_AutoTiling
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -732565652803077948, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
       propertyPath: motionY
@@ -79657,6 +79684,11 @@ PrefabInstance:
     - target: {fileID: -732565652803077948, guid: 3c9d577d5c8fd8b46914c20499d9051e,
         type: 3}
       propertyPath: velocidade.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284445694023544925, guid: 3c9d577d5c8fd8b46914c20499d9051e,
+        type: 3}
+      propertyPath: m_AutoTiling
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
