@@ -9,6 +9,9 @@ public class Menu : MonoBehaviour {
     public Sprite SoundON;
     public Sprite SoundOFF;
 
+    public GameObject Lore;
+
+
     GameObject mute;
     
     // Start is called before the first frame update
@@ -41,7 +44,8 @@ public class Menu : MonoBehaviour {
         }
     }
 
-    public void Score(){
+    public void CallLore(){
+        Lore.SetActive(true);
 
     }
 

@@ -42,6 +42,7 @@ public class Script : MonoBehaviour
         Text newTextObject = newGameObject.AddComponent<Text>();
         // Set the fontSize larger
         newTextObject.fontSize = 24;
+
         // Set the text from new story block
         newTextObject.text = getNextStoryBlock();
         // Load Arial from the built-in resources
