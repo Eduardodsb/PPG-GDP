@@ -37,5 +37,15 @@ public class SpecialAttackObject : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("RedObstacle"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+
+    }
+
 
 }
