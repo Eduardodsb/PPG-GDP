@@ -325,7 +325,7 @@ public void Paralyse()
             DisallowMovement();
             Invoke("Respawn", 1f);
         }
-
+        /*
         if (collision.gameObject.CompareTag("RedObstacle"))
         {
             Debug.Log("Atingiu obstaculo vermelho");
@@ -335,7 +335,7 @@ public void Paralyse()
             }
 
         }
-
+        */
         if (collision.gameObject.CompareTag("EndGameCollider")){
             Debug.Log("Agnes foi pras cucuias");
             //soundManager.PlaySound("AgnesDeathSound");
