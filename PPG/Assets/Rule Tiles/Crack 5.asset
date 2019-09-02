@@ -31,7 +31,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 86b6f5fa25e08874fad0eae99a3d4921, type: 3}
     - {fileID: 21300000, guid: f8107f221a7b6f34685b8853cc653126, type: 3}
     m_GameObject: {fileID: 0}
-    m_AnimationSpeed: 1
+    m_AnimationSpeed: 4
     m_PerlinScale: 0.5
     m_RuleTransform: 0
     m_Output: 2
