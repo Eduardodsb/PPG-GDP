@@ -10,9 +10,31 @@ public class PauseMenuScript : MonoBehaviour
 
     public GameObject PauseMenu;
 
+    string nameScene;
+
+    private void Start()
+    {
+        nameScene = SceneManager.GetActiveScene().name;
+        
+    }
+
+
     // Update is called once per frame
     void Update()
-    {
+    {   
+
+        if(nameScene == "Credits" && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isGamePaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape) && PlayerMovement.allowmovement)
         {
             if (isGamePaused)
