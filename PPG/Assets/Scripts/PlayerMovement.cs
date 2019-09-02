@@ -301,8 +301,11 @@ public void Paralyse()
     {
         rb.velocity = Vector3.zero;
         transform.position = checkpoint;
+        CancelInvoke("removeDashCooldown");
+        CancelInvoke("removeSpecialCooldown");
+        CancelInvoke("notDashing");
         removeDashCooldown();
-        ///removeSpecialCooldown();
+        removeSpecialCooldown();
         //animator.SetBool("Death", false);
         rb.simulated = true;
         AllowMovement();
@@ -321,6 +324,15 @@ public void Paralyse()
             rb.simulated = false;
             DisallowMovement();
             Invoke("Respawn", 1f);
+        }
+
+        if (collision.gameObject.CompareTag("RedObstacle"))
+        {
+            Debug.Log("Atingiu obstaculo vermelho");
+            if (isDashing == true)
+            {
+                Destroy(collision.gameObject);
+            }
 
         }
 
