@@ -29,7 +29,6 @@ public class ObstacleMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        /* if (delay < Time.time) {*/
         if ((transform.position.y > maxY) && motionY)
         {
             rb.velocity = -velocidade * Time.fixedDeltaTime * 100f;
@@ -38,7 +37,7 @@ public class ObstacleMovement : MonoBehaviour
         {
             rb.velocity = velocidade * Time.fixedDeltaTime * 100f;
         }
-        else if ((transform.position.x > minX && transform.position.x < maxX) && motionX && !initialMovementY)
+        else if ((transform.position.y >= minY && transform.position.y <= maxY) && motionY && !initialMovementY)
         {
             rb.velocity = velocidade * Time.fixedDeltaTime * 100f;
             initialMovementY = true;
@@ -59,6 +58,6 @@ public class ObstacleMovement : MonoBehaviour
             rb.velocity = velocidade * Time.fixedDeltaTime * 100f;
             initialMovementX = true;
         }
-        // }
+
     }
 }
