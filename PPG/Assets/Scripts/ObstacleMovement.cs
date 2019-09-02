@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleMovement : MonoBehaviour{
+public class ObstacleMovement : MonoBehaviour
+{
 
     public bool motionX;
     public bool motionY;
@@ -12,30 +13,52 @@ public class ObstacleMovement : MonoBehaviour{
     public float maxY;
     public float minY;
 
-    // Start is called before the first frame update
-    void Start(){
+    bool initialMovementX = false;
+    bool initialMovementY = false;
 
-        
+    private Rigidbody2D rb;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate()
+    {
 
-        if ((gameObject.GetComponent<Transform>().position.y > maxY) && motionY){
-            gameObject.GetComponent<Rigidbody2D>().velocity = -velocidade;
+        /* if (delay < Time.time) {*/
+        if ((transform.position.y > maxY) && motionY)
+        {
+            rb.velocity = -velocidade * Time.fixedDeltaTime * 100f;
         }
-        else if ((gameObject.GetComponent<Transform>().position.y <= minY) && motionY){
-            gameObject.GetComponent<Rigidbody2D>().velocity = velocidade;
+        else if ((transform.position.y <= minY) && motionY)
+        {
+            rb.velocity = velocidade * Time.fixedDeltaTime * 100f;
+        }
+        else if ((transform.position.x > minX && transform.position.x < maxX) && motionX && !initialMovementY)
+        {
+            rb.velocity = velocidade * Time.fixedDeltaTime * 100f;
+            initialMovementY = true;
         }
 
-        if ((gameObject.GetComponent<Transform>().position.x > maxX) && motionX){
+        if ((transform.position.x > maxX) && motionX)
+        {
 
-            gameObject.GetComponent<Rigidbody2D>().velocity = -velocidade;
+            rb.velocity = -velocidade * Time.fixedDeltaTime * 100f;
         }
-        else if ((gameObject.GetComponent<Transform>().position.x <= minX) && motionX){
+        else if ((transform.position.x <= minX) && motionX)
+        {
 
-            gameObject.GetComponent<Rigidbody2D>().velocity = velocidade;
+            rb.velocity = velocidade * Time.fixedDeltaTime * 100f;
         }
-
+        else if ((transform.position.x >= minX && transform.position.x <= maxX) && motionX && !initialMovementX)
+        {
+            rb.velocity = velocidade * Time.fixedDeltaTime * 100f;
+            initialMovementX = true;
+        }
+        // }
     }
 }
