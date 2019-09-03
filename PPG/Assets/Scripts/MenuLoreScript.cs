@@ -44,30 +44,35 @@ public class MenuLoreScript : MonoBehaviour
         // Add a new Text component to the new GameObject
         Text newTextObject = newGameObject.AddComponent<Text>();
         // Set the fontSize larger
-        newTextObject.fontSize = 24;
+        newTextObject.fontSize = 15;
         //newTextObject.alignment = TextAnchor.MiddleCenter;
         // Set the text from new story block
         newTextObject.text = getNextStoryBlock();
         // Load Arial from the built-in resources
-        newTextObject.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        newTextObject.lineSpacing = 2;
+        newTextObject.font = (Font)Resources.Load("Fontes/PressStart2P");
+
 
         foreach (Choice choice in story.currentChoices)
         {
+            Navigation customNav = new Navigation();
+            customNav.mode = Navigation.Mode.None;
             Button choiceButton = Instantiate(buttonPrefab) as Button;
+            choiceButton.navigation = customNav;
             choiceButton.transform.SetParent(this.transform, false);
 
             // Gets the text from the button prefab
             Text choiceText = choiceButton.GetComponentInChildren<Text>();
             choiceText.text = choice.text;
             choiceText.color = Color.white;
-
+            choiceText.font = (Font)Resources.Load("Fontes/PressStart2P");
             // Set listener
             choiceButton.onClick.AddListener(delegate {
                 Debug.Log(GameManagementScript.hasColectables);
-                if(choice.text == "Kawapi e a terra de Auerá" && !GameManagementScript.timeCounter)
-                {
+
+                if(choice.text == "Kawapi e a terra de Auerá" && GameManagementScript.timeCounter)
                     newTextObject.text = "Não foi possível acessar a lore \"Kawapi e a terra de Auerá\" pois não foi atingido o objetivo ao longo do jogo";
-                }else if(choice.text == "A terra oculta e outras terras" && !GameManagementScript.hasDied)
+                else if(choice.text == "A terra oculta e outras terras" && GameManagementScript.hasDied)
                     newTextObject.text = "Não foi possível acessar a lore \"A terra oculta e outras terras\" pois não foi atingido o objetivo ao longo do jogo";
                 else if (choice.text == "Sobre Agnes" && !GameManagementScript.endGame)
                     newTextObject.text = "Não foi possível acessar a lore \"Sobre Agnes\" pois não foi atingido o objetivo ao longo do jogo";
