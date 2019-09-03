@@ -22,7 +22,7 @@ public class DialogManager : MonoBehaviour
     public Dialogs[] dialogs;
 
 
-
+    static bool collectible = false;
 
     Dictionary<GameObject, string> dialogMap = new Dictionary<GameObject, string>();
 
@@ -68,6 +68,12 @@ public class DialogManager : MonoBehaviour
 
         }
 
+        /*
+        if (dialogMap[collision.gameObject] == "objeto_colecionavel")
+        {
+            collectible = true;
+        }
+        */
 
 
 

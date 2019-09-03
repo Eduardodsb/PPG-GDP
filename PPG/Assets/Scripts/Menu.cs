@@ -46,7 +46,11 @@ public class Menu : MonoBehaviour {
 
     public void CallLore(){
         Lore.SetActive(true);
+    }
 
+    public void CloseLore()
+    {
+        Lore.SetActive(false);
     }
 
 }
