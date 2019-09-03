@@ -41,12 +41,13 @@ public class Script : MonoBehaviour
         // Add a new Text component to the new GameObject
         Text newTextObject = newGameObject.AddComponent<Text>();
         // Set the fontSize larger
-        newTextObject.fontSize = 24;
+        newTextObject.fontSize = 15;
 
         // Set the text from new story block
         newTextObject.text = getNextStoryBlock();
         // Load Arial from the built-in resources
-        newTextObject.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        newTextObject.lineSpacing = 2;
+        newTextObject.font = (Font)Resources.Load("Fontes/PressStart2P");
 
         foreach (Choice choice in story.currentChoices)
         {
@@ -57,7 +58,7 @@ public class Script : MonoBehaviour
             Text choiceText = choiceButton.GetComponentInChildren<Text>();
             choiceText.text = choice.text;
             choiceText.color = Color.white;
-
+            choiceText.font = (Font)Resources.Load("Fontes/PressStart2P");
             // Set listener
             choiceButton.onClick.AddListener(delegate {
                 OnClickChoiceButton(choice);

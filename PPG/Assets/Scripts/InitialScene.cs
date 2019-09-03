@@ -19,7 +19,8 @@ public class InitialScene : MonoBehaviour{
         text2 = GameObject.Find("Text2");
         text3 = GameObject.Find("Text3");
         button = GameObject.Find("EatFrog");
-        soundManager = GameObject.Find("SoundManager");
+        soundManager = GameObject.Find("GameManager");
+ 
     }
 
     public void NextScene(){
@@ -42,6 +43,7 @@ public class InitialScene : MonoBehaviour{
         gameObject.SetActive(false);
         dialogPanel.SetActive(true);
         dialogPanelImage.SetActive(true);
+        soundManager.GetComponent<SoundManagerScript>().PlaySound("BackgroundSound");
         //GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
     }
 
