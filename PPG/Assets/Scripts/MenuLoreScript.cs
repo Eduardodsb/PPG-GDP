@@ -63,6 +63,17 @@ public class MenuLoreScript : MonoBehaviour
 
             // Set listener
             choiceButton.onClick.AddListener(delegate {
+                Debug.Log(GameManagementScript.hasColectables);
+                if(choice.text == "Kawapi e a terra de Auerá" && !GameManagementScript.timeCounter)
+                {
+                    newTextObject.text = "Não foi possível acessar a lore \"Kawapi e a terra de Auerá\" pois não foi atingido o objetivo ao longo do jogo";
+                }else if(choice.text == "A terra oculta e outras terras" && !GameManagementScript.hasDied)
+                    newTextObject.text = "Não foi possível acessar a lore \"A terra oculta e outras terras\" pois não foi atingido o objetivo ao longo do jogo";
+                else if (choice.text == "Sobre Agnes" && !GameManagementScript.endGame)
+                    newTextObject.text = "Não foi possível acessar a lore \"Sobre Agnes\" pois não foi atingido o objetivo ao longo do jogo";
+                else if (choice.text == "Magia é saber o nome das coisas" && !GameManagementScript.hasColectables)
+                    newTextObject.text = "Não foi possível acessar a lore \"Magia é saber o nome das coisas\" pois não foi atingido o objetivo ao longo do jogo";
+                else
                 OnClickChoiceButton(choice);
             });
 
@@ -83,18 +94,9 @@ public class MenuLoreScript : MonoBehaviour
     // When we click the choice button, tell the story to choose that choice!
     void OnClickChoiceButton(Choice choice)
     {
+  
         story.ChooseChoiceIndex(choice.index);
-        //Debug.Log(story.currentChoices.Count);
-
-        /*
-        
-        if(GameManagementScript.endGame == true)
-        {
-
-        }
-        */
-        //choice.text;
-
+  
         refresh();
     }
 
@@ -113,16 +115,13 @@ public class MenuLoreScript : MonoBehaviour
     string getNextStoryBlock()
     {
 
-
-
-        /*
         if (sceneNames != null)
         {
             Debug.Log(sceneNames);
             story.ChoosePathString(sceneNames);
             sceneNames = null;
         }
-        */
+        
 
         string text = "";
         //text += story.Continue();

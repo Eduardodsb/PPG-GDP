@@ -9,6 +9,8 @@
 
 * [Magia é saber o nome das coisas] -> menu_lore_extra_4
 
+* [> Retornar] -> END
+
 === menu_lore_extra_1 ===
 
 // Texto falando de Kawapi. Título "Kawapi e a terra de Auerá". Deve ser desbloqueado se o jogador fizer uma speedrun - terminar o jogo em menos de X tempo.
