@@ -9,7 +9,7 @@
 
 * [Magia é saber o nome das coisas] -> menu_lore_extra_4
 
-* [> Retornar] -> END
+* [> Retornar ao Menu Principal] -> END
 
 === menu_lore_extra_1 ===
 

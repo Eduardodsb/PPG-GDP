@@ -13,7 +13,6 @@ public class MenuLoreScript : MonoBehaviour
     int counter = 0;
     //static public Dictionary<string, int> sceneMap = new Dictionary<string, int>();
     static public string sceneNames;
-
     
 
     // Start is called before the first frame update
@@ -21,7 +20,6 @@ public class MenuLoreScript : MonoBehaviour
     {
         // Load the next story block
         story = new Story(inkJSONAsset.text);
-
         // Start the refresh cycle
         refresh();
 
@@ -67,12 +65,13 @@ public class MenuLoreScript : MonoBehaviour
             choiceText.color = Color.white;
             choiceText.font = (Font)Resources.Load("Fontes/PressStart2P");
             // Set listener
+
             choiceButton.onClick.AddListener(delegate {
-                Debug.Log(GameManagementScript.hasColectables);
+                //Debug.Log(GameManagementScript.hasColectables);
 
                 if(choice.text == "Kawapi e a terra de Auerá" && GameManagementScript.timeCounter)
                     newTextObject.text = "Não foi possível acessar a lore \"Kawapi e a terra de Auerá\" pois não foi atingido o objetivo ao longo do jogo";
-                else if(choice.text == "A terra oculta e outras terras" && GameManagementScript.hasDied)
+                else if(choice.text == "A terra oculta e outras terras" && !GameManagementScript.hasDied)
                     newTextObject.text = "Não foi possível acessar a lore \"A terra oculta e outras terras\" pois não foi atingido o objetivo ao longo do jogo";
                 else if (choice.text == "Sobre Agnes" && !GameManagementScript.endGame)
                     newTextObject.text = "Não foi possível acessar a lore \"Sobre Agnes\" pois não foi atingido o objetivo ao longo do jogo";
@@ -91,6 +90,9 @@ public class MenuLoreScript : MonoBehaviour
         // Debug.Log("Aqui" + story.currentChoices.Count);
         if (story.currentChoices.Count == 0)
         {
+            //Debug.Log(story.state.currentPathString);
+
+            //story.ResetState();
             GameObject.Find("LoreText").SetActive(false);
         }
 
@@ -99,10 +101,22 @@ public class MenuLoreScript : MonoBehaviour
     // When we click the choice button, tell the story to choose that choice!
     void OnClickChoiceButton(Choice choice)
     {
-  
-        story.ChooseChoiceIndex(choice.index);
-  
-        refresh();
+        //Debug.Log("teste " + choice.pathStringOnChoice + " " + choice.sourcePath);
+
+        
+        if(choice.text == "> Retornar")
+        {
+            Start();
+        }
+        
+        else{
+            story.ChooseChoiceIndex(choice.index);
+
+
+
+            refresh();
+        }
+
     }
 
     // Clear out all of the UI, calling Destory() in reverse

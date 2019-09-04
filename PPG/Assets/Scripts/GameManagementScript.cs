@@ -23,11 +23,6 @@ public class GameManagementScript : MonoBehaviour
         InitScene();
     }
 
-    // Update is called once per frame
-    void Update(){
-
-    }
-
     private string GetScene(){
         return SceneManager.GetActiveScene().name;
     }
@@ -47,5 +42,7 @@ public class GameManagementScript : MonoBehaviour
         teste.Start();
 
     }
+
+
 
 }
