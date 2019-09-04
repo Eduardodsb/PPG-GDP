@@ -68,12 +68,13 @@ public class DialogManager : MonoBehaviour
 
         }
 
-        /*
+        
         if (dialogMap[collision.gameObject] == "objeto_colecionavel")
         {
-            collectible = true;
+            GameManagementScript.hasColectables = true;
+
         }
-        */
+        
 
 
 

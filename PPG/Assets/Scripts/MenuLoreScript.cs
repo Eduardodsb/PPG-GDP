@@ -69,9 +69,9 @@ public class MenuLoreScript : MonoBehaviour
             choiceButton.onClick.AddListener(delegate {
                 //Debug.Log(GameManagementScript.hasColectables);
 
-                if(choice.text == "Kawapi e a terra de Auerá" && GameManagementScript.timeCounter)
+                if(choice.text == "Kawapi e a terra de Auerá" && !GameManagementScript.timeCounter)
                     newTextObject.text = "Não foi possível acessar a lore \"Kawapi e a terra de Auerá\" pois não foi atingido o objetivo ao longo do jogo";
-                else if(choice.text == "A terra oculta e outras terras" && !GameManagementScript.hasDied)
+                else if(choice.text == "A terra oculta e outras terras" && !GameManagementScript.notDied)
                     newTextObject.text = "Não foi possível acessar a lore \"A terra oculta e outras terras\" pois não foi atingido o objetivo ao longo do jogo";
                 else if (choice.text == "Sobre Agnes" && !GameManagementScript.endGame)
                     newTextObject.text = "Não foi possível acessar a lore \"Sobre Agnes\" pois não foi atingido o objetivo ao longo do jogo";
