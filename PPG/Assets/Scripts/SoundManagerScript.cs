@@ -10,6 +10,8 @@ public class Sound
     public bool loop;
     [Range(0f, 1f)]
     public float volume;
+    [Range(0, 256)]
+    public int priority;
 
     public AudioSource audiosrc;
 
@@ -19,7 +21,7 @@ public class Sound
         audiosrc.clip = clip;
         audiosrc.loop = loop;
         audiosrc.volume = volume;
-
+        audiosrc.priority = priority;
     }
 
     public void Play(){

@@ -2212,42 +2212,56 @@ MonoBehaviour:
   - name: PlayerJump
     clip: {fileID: 8300000, guid: f877121f18ee3924e9ba26fdbd31934d, type: 3}
     loop: 0
-    volume: 0.4
+    volume: 1
+    priority: 256
     audiosrc: {fileID: 0}
   - name: MenuSound
     clip: {fileID: 8300000, guid: ab151c05634705943b59844d8297aa36, type: 3}
     loop: 1
-    volume: 0.01
+    volume: 0.04
+    priority: 0
     audiosrc: {fileID: 0}
   - name: DreamSound1
     clip: {fileID: 8300000, guid: 3fe3524d213fd62499efcce9daf8157a, type: 3}
     loop: 0
-    volume: 0.1
+    volume: 0.5
+    priority: 0
     audiosrc: {fileID: 0}
   - name: DreamSound2
     clip: {fileID: 8300000, guid: 76a96f1a8488469478d8fcf920034e7d, type: 3}
     loop: 0
-    volume: 0.1
+    volume: 0.5
+    priority: 0
     audiosrc: {fileID: 0}
   - name: RunSound
     clip: {fileID: 8300000, guid: ad250dea1aa863d4faf5239eacc0778c, type: 3}
     loop: 0
-    volume: 0.1
+    volume: 1
+    priority: 256
     audiosrc: {fileID: 0}
   - name: DashSound
     clip: {fileID: 8300000, guid: d3061df4b458045468fec14edd88b3f5, type: 3}
     loop: 0
-    volume: 0.03
+    volume: 0.6
+    priority: 128
     audiosrc: {fileID: 0}
   - name: OnLandSound
     clip: {fileID: 8300000, guid: c5eb763b4cb37364aa46ff5b3d4c138f, type: 3}
     loop: 0
-    volume: 0.25
+    volume: 1
+    priority: 256
     audiosrc: {fileID: 0}
   - name: BackgroundSound
     clip: {fileID: 8300000, guid: a76bdfe8cbb8fd946b683130c26a063d, type: 3}
     loop: 1
-    volume: 0.004
+    volume: 0.04
+    priority: 0
+    audiosrc: {fileID: 0}
+  - name: DeathSound
+    clip: {fileID: 8300000, guid: 5210136c518ae934883cf36cc6f1f0ee, type: 3}
+    loop: 0
+    volume: 1
+    priority: 128
     audiosrc: {fileID: 0}
 --- !u!114 &1574619162
 MonoBehaviour:

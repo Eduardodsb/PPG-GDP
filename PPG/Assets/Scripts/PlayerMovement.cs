@@ -125,6 +125,8 @@ public class PlayerMovement : MonoBehaviour {
         if (special && !isSpecialCooldown)
         {
             isSpecialCooldown = true;
+            animator.SetBool("2_Up", true);
+            /*animator.SetTrigger("2_Jump");*/
             Invoke("removeSpecialCooldown", cooldownSpecialTime);
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0f, specialForce));
@@ -186,6 +188,7 @@ public class PlayerMovement : MonoBehaviour {
         if (rb.velocity.y < -0.5 && !collision){
             animator.SetBool("Down", true);
             animator.SetBool("Up", false);
+            animator.SetBool("2_Up", false);
         }
 
 
@@ -237,6 +240,7 @@ public class PlayerMovement : MonoBehaviour {
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             animator.SetBool("Dash", true);
             animator.SetBool("Up", false);
+            animator.SetBool("2_Up", false);
             animator.SetBool("Down", false);
             if (soundManager != null) { soundManager.PlaySound("DashSound"); }
             yield return new WaitForSeconds(waitTime);
@@ -299,6 +303,7 @@ public void Paralyse()
 
     void Respawn()
     {
+        animator.SetBool("Death", false);
         rb.velocity = Vector3.zero;
         transform.position = checkpoint;
         CancelInvoke("removeDashCooldown");
@@ -306,7 +311,6 @@ public void Paralyse()
         CancelInvoke("notDashing");
         removeDashCooldown();
         removeSpecialCooldown();
-        //animator.SetBool("Death", false);
         rb.simulated = true;
         AllowMovement();
     }
@@ -319,8 +323,8 @@ public void Paralyse()
 
         if (collision.gameObject.CompareTag("Obstacle")){
             Debug.Log("Agnes foi pras cucuias");
-            //soundManager.PlaySound("AgnesDeathSound");
-            //animator.SetBool("Death", true);
+            soundManager.PlaySound("DeathSound");
+            animator.SetBool("Death", true);
             rb.simulated = false;
             DisallowMovement();
             Invoke("Respawn", 1f);
@@ -338,8 +342,8 @@ public void Paralyse()
         */
         if (collision.gameObject.CompareTag("EndGameCollider")){
             Debug.Log("Agnes foi pras cucuias");
-            //soundManager.PlaySound("AgnesDeathSound");
-            //animator.SetBool("Death", true);
+            soundManager.PlaySound("DeathSound");
+            animator.SetBool("Death", true);
             rb.simulated = false;
             DisallowMovement();
             Invoke("Respawn", 1f);
@@ -369,6 +373,7 @@ public void Paralyse()
             this.collision = true;
             animator.SetBool("Down", false);
             animator.SetBool("Up", false);
+            animator.SetBool("2_Up", false);
             isJumping = false;
             rb.velocity = Vector2.zero;
             //rb.angularVelocity = 0f;
