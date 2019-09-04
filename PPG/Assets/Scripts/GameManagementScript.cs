@@ -10,7 +10,7 @@ public class GameManagementScript : MonoBehaviour
     public GameObject dialogPanel;
 
     static public bool hasColectables = false;
-    static public bool hasDied = false;
+    static public bool notDied = true;
     static public bool endGame = false;
     static public bool timeCounter = false;
 

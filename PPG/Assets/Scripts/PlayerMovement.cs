@@ -312,6 +312,7 @@ public void Paralyse()
         removeDashCooldown();
         removeSpecialCooldown();
         rb.simulated = true;
+        GameManagementScript.notDied = false;
         AllowMovement();
     }
 
