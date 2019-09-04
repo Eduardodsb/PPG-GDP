@@ -323,7 +323,8 @@ public void Paralyse()
 
         if (collision.gameObject.CompareTag("Obstacle")){
             Debug.Log("Agnes foi pras cucuias");
-            soundManager.PlaySound("DeathSound");
+            if(soundManager != null)
+                soundManager.PlaySound("DeathSound");
             animator.SetBool("Death", true);
             rb.simulated = false;
             DisallowMovement();
@@ -342,7 +343,8 @@ public void Paralyse()
         */
         if (collision.gameObject.CompareTag("EndGameCollider")){
             Debug.Log("Agnes foi pras cucuias");
-            soundManager.PlaySound("DeathSound");
+            if (soundManager != null)
+                soundManager.PlaySound("DeathSound");
             animator.SetBool("Death", true);
             rb.simulated = false;
             DisallowMovement();
