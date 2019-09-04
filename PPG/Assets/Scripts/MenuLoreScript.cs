@@ -62,6 +62,7 @@ public class MenuLoreScript : MonoBehaviour
             // Gets the text from the button prefab
             Text choiceText = choiceButton.GetComponentInChildren<Text>();
             choiceText.text = choice.text;
+            choiceText.fontSize = 25;
             choiceText.color = Color.white;
             choiceText.font = (Font)Resources.Load("Fontes/PressStart2P");
             // Set listener
