@@ -9,7 +9,7 @@
 
 * [Magia é saber o nome das coisas] -> menu_lore_extra_4
 
-* [> Retornar] -> END
+* [> Retornar ao Menu Principal] -> END
 
 === menu_lore_extra_1 ===
 
@@ -32,7 +32,7 @@ Apesar de ser um pouco prepotente, o que parece estranho vindo de um monge, Kawa
 -É o que Agnes descobre, ao perceber que Kawapi roubou sua bolsa, e não pretende devolver tudo que encontrou dentro dela. Mas Kawapi não faz por crueldade, e não costuma tomar para si objetos necessários para outras pessoas. Seu objetivo é conseguir novos materiais para seu artesanato. Quando percebe que pode ter pego algo muito importante, costuma devolver.
 Mas não sem se divertir um pouco antes.
 
-* [> Retornar] -> END
+* [> Retornar] -> menu_selecao
 
 
 === menu_lore_extra_2 ===
@@ -59,7 +59,7 @@ Por conta disso, as vidas que habitam essa terra são tão informes e indefinida
 Assim acontece que um deles, em um dia qualquer, consegue abrir um portal para dentro da casa de Agnes.
 
 
-* [> Retornar] -> END
+* [> Retornar] -> menu_selecao
 
 
 === menu_lore_extra_3 ===
@@ -89,7 +89,7 @@ Em todos esses casos, e outros, Agnes precisou de toda a sua firmeza para tomar 
 * [> Continuar]
 - Por isso, talvez, não poderia ser de outra forma: nessa quarta-feira, seu grande teste não foi uma prova de encantamentos. E, sim, algo muito mais sinistro.
 
-* [> Retornar] -> END
+* [> Retornar] -> menu_selecao
 
 === menu_lore_extra_4 ===
 
@@ -116,4 +116,4 @@ No entanto, quando não precisam enfrentar esse tipo de coisa, bruxos e bruxas c
 
 
 
-* [> Retornar] -> END
+* [> Retornar] -> menu_selecao
