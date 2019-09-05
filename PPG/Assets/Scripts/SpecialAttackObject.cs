@@ -39,7 +39,7 @@ public class SpecialAttackObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("RedObstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") && PlayerMovement.breakAbility)
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);

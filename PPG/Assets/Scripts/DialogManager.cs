@@ -44,38 +44,36 @@ public class DialogManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (dialogMap.ContainsKey(collision.gameObject))
-        {
-            //if (!Script.sceneMap.ContainsKey(collision.gameObject.name))
-            //{
-            dialogPanel.SetActive(true);
-            dialogPanelImage.SetActive(true);
+            if (dialogMap.ContainsKey(collision.gameObject))
+            {
+                //if (!Script.sceneMap.ContainsKey(collision.gameObject.name))
+                //{
+                dialogPanel.SetActive(true);
+                dialogPanelImage.SetActive(true);
 
-            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
-            Script.sceneNames = dialogMap[collision.gameObject];
+                Script.sceneNames = dialogMap[collision.gameObject];
 
-            //Script.sceneMap.Add(collision.gameObject.name, 0);
+                //Script.sceneMap.Add(collision.gameObject.name, 0);
 
-            Script teste = dialogPanel.GetComponent<Script>();
-            teste.Start();
+                Script teste = dialogPanel.GetComponent<Script>();
+                teste.Start();
 
-            //Script.sceneNames = "";
+                //Script.sceneNames = "";
 
-            //}
+                //}
 
 
 
-        }
+            }
 
-        
-        if (dialogMap[collision.gameObject] == "objeto_colecionavel")
-        {
-            GameManagementScript.hasColectables = true;
-
-        }
-        
-
+            if (dialogMap.ContainsKey(collision.gameObject)) { 
+                if (dialogMap[collision.gameObject] == "objeto_colecionavel")
+                {
+                    GameManagementScript.numberColectables++;
+                }
+            }
 
 
 

@@ -1,18 +1,19 @@
--> quarto
+->quarto
 === quarto ===
 
 //tela preta
-/*
-Eu te falei que não era pra misturar essas ervas, sapo. Não importa o que a grande avó te disse. Não, não era pra misturar... eu te falei...
+
+Eu te falei que não era pra misturar essas ervas, sapo. Não importa o que a grande mãe te disse. Não, não era pra misturar... eu te falei... 
 
 * [Comer o sapo]
 
 - Hein? O quê?
-*/
+
 //luz fraca
 
-Nossa... que sonho bizarro. Não aguento mais essa semana. Me levem pra longe, por favor. 
-E pior que ainda é, vamos ver... quarta-feira? É, isso mesmo.
+Nossa, que sonho bizarro. Não aguento mais essa semana. 
+Só me levem pra longe, por favor... 
+E pior que ainda é o quê, quarta-feira? 
 
 * Espera...
 
@@ -21,14 +22,15 @@ A prova de encantamentos! É daqui a pouco! Ai, deusa, que desgraça.
 
 * Tenho que me levantar[!] 
 
-<> e me arrumar correndo! E depois ainda tem o trabalho de botânica, e aquela encomenda das essências... Desse jeito vou acabar reprovando. 
+<> e me arrumar correndo! E depois ainda tem o trabalho de botânica, e aquela encomenda das essências... 
+Desse jeito vou acabar reprovando. 
 
 ** [> Acender as luzes]
 
 //luz forte, dá pra ver a segunda dimensão vazando no quarto
 
 - O quê? Isso parece magia. 
-Tem alguma coisa estranha acontecendo. Melhor ter cuidado. Vou precisar me vestir.
+Tem alguma coisa estranha acontecendo. Melhor ter cuidado. 
 
 * [...] -> END
 
@@ -43,7 +45,8 @@ Esse lugar tá com cheiro de fumaça. De coisa queimando.
 
 * Nada bom...
 
-- Se for uma invocação, quer dizer que tem alguém aqui dentro. Mas essas cores vazando pelas paredes...  Não parece um feitiço qualquer.
+- Se for uma invocação, quer dizer que tem alguém aqui dentro. 
+Mas essas cores vazando pelas paredes...  Não parece um feitiço qualquer.
 
 * [...] -> END
 
@@ -51,7 +54,7 @@ Esse lugar tá com cheiro de fumaça. De coisa queimando.
 === vortex_1 ===
 
 Eu não gosto nem um pouco disso. Quero voltar pra cama.
-Que raio de lugar é esse?
+Que diabo de lugar é esse?
 
 * Parece outro mundo. 
 <> E faz frio...
@@ -62,53 +65,51 @@ Que raio de lugar é esse?
 
 AGNES: Ei! Quem é você? 
 
-KAWAPI: Meu nome é Kawapi. E qual é o seu nome?
+KAWAPI: Meu nome é Kawapi. E qual é o seu nome? #kawapi
 
 - (loop_npc) 
-{nome and casa: -> loop_npc_2}
+{nome and casa: -> escuta}
 
 AGNES: 
 
 * (casa) <> Por que você tá no meu banheiro? 
 
-KAWAPI: É uma boa pergunta. Eu também não sei. Na verdade, eu ainda não tenho certeza de como vim parar na sua casa. 
-Ela é muito bonita, por sinal. {not nome: Mas ainda não sei o seu nome.}
+KAWAPI: É uma boa pergunta. Na verdade, eu ainda não tenho certeza de como vim parar na sua casa. #kawapi
 
 -> loop_npc
 
- * (rude1) {not rude2} <> Sai daqui agora!
+* (nome) <> Meu nome é Agnes[.]. Sou uma bruxa. Estudante de magia. 
 
-KAWAPI: Que rude. Nunca vamos nos entender assim. 
+KAWAPI: Agradeço por conhecê-la, Agnes. Apesar de as circunstâncias serem tão estranhas, não é mesmo? #kawapi
+-> loop_npc
+
+* (rude2) <> ISSO IMPORTA?
+
+KAWAPI: Se não importa, por que você me perguntou meu nome? #kawapi
 
 -> loop_npc
 
-* (nome) <> Meu nome é Agnes. 
 
-KAWAPI: Agradeço por conhecê-la, Agnes. Apesar de as circunstâncias serem tão estranhas, não é mesmo? 
--> loop_npc
+- (escuta) AGNES: 
 
-* (rude2) {not rude1} <> ISSO IMPORTA?
-
-KAWAPI: Se não importa, por que você me perguntou meu nome?
-
--> loop_npc
-
+* Escuta aqui[...]. <>
+- Acabei de acordar e me deparei com um vórtice imenso de energia na minha casa.
 
 - (loop_npc_2) 
 
-{feiticeiro or sabe: |AGNES: Escuta aqui. Acabei de acordar e me deparei com um vórtice imenso de energia na minha casa.}
 
 {||-> loop_npc_3}
 {|AGNES:| AGNES:}
 
-* (feiticeiro) Algum feiticeiro poderoso quer alguma coisa daqui[.]. É a única explicação.  
-<> Mas não sei o que pode ser. Não tenho nada tão valioso.
-
+* (feiticeiro) Algum feiticeiro poderoso quer alguma coisa daqui[.], é a única explicação.  
+Mas não sei o que pode ser. Não tenho nada tão valioso.
+** [> Continuar]
+ #kawapi
 KAWAPI: Tem certeza? Vi muitas coisas interessantes desde que cheguei aqui. Pode estar subestimando sua coleção. -> loop_npc_2
 
 * (sabe) Você não sabe nada sobre isso?
-
-KAWAPI: Saber, não sei. Mas parece que fui trazido aqui por um desses vórtices. Estava em meu vilarejo, senti cheiro de fumaça e de repente... aqui estamos nós. -> loop_npc_2
+ #kawapi
+KAWAPI: Não sei. Mas parece que fui trazido aqui por um desses vórtices. Estava em meu vilarejo, senti cheiro de fumaça e de repente... aqui estamos nós. -> loop_npc_2 
 
 - (loop_npc_3)
 {|||-> loop_npc_4}
@@ -116,25 +117,28 @@ AGNES: <>
 
 * Você pode me ajudar?
 
-KAWAPI: Depende. Você pode me ajudar? Acho que podemos chegar a um acordo. 
+KAWAPI: Depende. Você pode me ajudar? Acho que podemos chegar a um acordo. #kawapi
 -> loop_npc_3
 
 * Eles querem alguma coisa com você?
 
-KAWAPI: Não sei quem "eles" são. E não acho que nenhum feiticeiro poderoso queira nada comigo. Sou um simples monge, artesão e comerciante. Certo? Nada mais do que isso. Um simples artesão. 
+KAWAPI: Não sei quem "eles" são. E não acho que nenhum feiticeiro queira nada comigo. Sou um simples monge, artesão e comerciante. Certo? Nada mais que isso. #kawapi
 -> loop_npc_3
 
 * Vilarejo?
 
-KAWAPI: Sim, minha terra natal, na floresta. Eu estava, digamos... resolvendo umas coisas lá quando vim parar aqui. Só vi o vórtice depois de já ter sido transportado. 
+KAWAPI: Sim, minha terra natal, na floresta. Só vi o vórtice depois de já ter sido transportado. Foi uma sensação muito estranha. #kawapi
 -> loop_npc_3
 
 - (loop_npc_4)
 
-AGNES: Vamos conversar então. O que posso fazer por... 
-ESPERA AÍ. ISSO É MINHA BOLSA?
 
-KAWAPI: Talvez seja.
+AGNES: 
+
+* Vamos conversar então[.] O que posso fazer por... 
+- ESPERA AÍ. ISSO É MINHA BOLSA?
+
+KAWAPI: Talvez seja. #kawapi
 
 AGNES: 
 
@@ -142,22 +146,24 @@ AGNES:
 
 * O que você pensa que tá fazendo?
 
-- KAWAPI: Em minha defesa, eu nem sabia onde eu estava quando peguei isso. E como eu disse, talvez você subestime sua coleção. Achei coisas muito interessantes aqui. Preciso de coisas interessantes no meu trabalho.
+- KAWAPI: Em minha defesa, eu nem sabia onde eu estava quando peguei isso. E eu preciso de coisas interessantes no meu trabalho. #kawapi
 
-AGNES:
+- AGNES:
 
 * Não importa. São minhas.
 
-KAWAPI: Será que podemos ter certeza disso? Aposto que você nem sabe o que tem nessa bolsa. 
+KAWAPI: Será que podemos ter certeza disso? Aposto que você nem sabe tudo que tem nessa bolsa. #kawapi
 
 * É melhor você entregar agora.
 
-KAWAPI: Ou o quê? Acha que consegue me pegar?
+KAWAPI: Ou o quê? Acha que consegue me pegar? #kawapi
 
-- AGNES: Tem coisas muito importantes aí. Eu vou precisar dessa bolsa, Kawapi. Minha casa está sendo invadida.
-
-KAWAPI: Vamos fazer o seguinte: se você me alcançar, eu te devolvo alguma coisa importante dessa bolsa. A maioria das coisas aqui são bugigangas sem valor, e você sabe disso. Mas são bonitas e quero usar no meu artesanato. É o mínimo que mereço depois de um dia tão estranho. 
-Vamos? Vai ser divertido!
+- AGNES: 
+* Tem coisas muito importantes aí. <>
+- Eu vou precisar dessa bolsa, Kawapi. Minha casa tá sendo invadida.
+* [> Continuar]
+- KAWAPI: Vamos fazer o seguinte: se você me alcançar, eu te devolvo alguma coisa importante dessa bolsa. É o mínimo que mereço depois de um dia tão estranho. #kawapi
+- Vamos? Vai ser divertido! #kawapi
 
 * [...] -> END
 
@@ -171,27 +177,6 @@ AGNES: Não acredito nisso...
 * [...] -> END
 
 
-=== labirinto_com_kawapi ===
-
-// perseguição ao npc, e ele começa a tagarelar
-
-- KAWAPI: Sabe, eu acho que não me apresentei direito. Comecei a imaginar agora se você aparecesse em minha casa de repente, junto de um feitiço estranho, como eu me comportaria. Acho que pelo menos ia querer saber um pouco além do seu nome.
-Minha terra natal se chama Auerá. É uma imensa floresta. Acho que você gostaria de conhecê-la. Em Auerá, muitas comunidades convivem, integradas. E eu sou um dos membros mais importantes da minha.
-Porque sou muito inteligente e tenho muitos artefatos, amuletos, conselhos e poderes, sim. É um dos motivos. Não sei se você percebeu, Agnes, mas desde que você falou comigo pela primeira vez temos conversado na sua língua. Coisa que nunca fiz antes. 
-Mas também porque sou muito ágil. Já liderei todo tipo de caçada ou migração. O que me lembra de uma história: uma vez, um animal de carga fugiu em debandada pela floresta, furioso. Quando o susto passou, ninguém sabia sequer em que direção ele tinha ido. Eu que tive que ver os rastros. Corri tanto na direção do animal que o alcancei com folga, e só de ver minha velocidade ele parou de correr e desistiu da fuga.
-Mas fique tranquila, você ainda tem chances.
-
--> END
-
-// quando a Agnes está perto de alcançar Kawapi, ele some e aparece em outro lugar
-
-=== kawapi_some_2 ===
-
-KAWAPI: Não foi dessa vez!
-
-* [...] -> END
-
-
 === porta_da_rua_1 ===
 
 // Agnes passa pela porta de sua casa e vê o obstáculo mágico.
@@ -199,6 +184,25 @@ KAWAPI: Não foi dessa vez!
 Acho que não consigo passar por isso ainda. Preciso de magias mais poderosas. 
 
 * [...] -> END
+
+
+=== labirinto_com_kawapi_1 ===
+
+// perseguição ao npc, e ele começa a tagarelar
+
+- KAWAPI: Sabe, eu acho que não me apresentei direito. Se você fosse transportada para a minha casa por um feitiço estranho, de repente, acho que pelo menos ia querer saber um pouco além do seu nome. #kawapi
+* [> Continuar]
+- Minha terra natal se chama Auerá. É uma imensa floresta. Em Auerá, muitas comunidades convivem, integradas. Acho que você gostaria de conhecê-la. Talvez um dia? #kawapi
+* [...] -> END
+
+// quando a Agnes está perto de alcançar Kawapi, ele some e aparece em outro lugar
+
+=== kawapi_some_2 ===
+
+KAWAPI: Não foi dessa vez! #kawapi
+
+* [...] -> END
+
 
 
 === biblioteca_1 ===
@@ -219,18 +223,18 @@ Onde será que ele se meteu dessa vez? Espero que não esteja comendo minhas coi
 
 // perseguição ao npc, e ele começa a tagarelar
 
-- KAWAPI: Eu preciso admitir que, pra uma feiticeira, você também é bem ágil. De onde eu venho, aqueles que mexem com a magia não costumam ter esses atributos. Sua ligação com o próprio corpo não é aquilo que mais valorizam, e sim a conexão com as forças espirituais, as entidades da floresta, suas plantas e animais, o sol e a lua...
-A verdade é que eu gostaria de ter te conhecido em outra situação. Acho que teríamos muito a conversar. 
-Pelo menos do jeito que aconteceu eu consegui conhecer a sua casa. E sua preciosa coleção de coisas desse mundo... Incríveis!
-
--> END
-
+- KAWAPI: Eu preciso admitir que, pra uma feiticeira, você também é bem ágil. De onde eu venho, aqueles que mexem com a magia não costumam ter esses atributos. #kawapi 
+* [> Continuar] 
+- Sua ligação com o próprio corpo não é aquilo que mais valorizam, e sim a conexão com as forças espirituais, as entidades da floresta, suas plantas e animais, o sol e a lua... #kawapi
+* Você não me conhece[.], Kawapi. <>
+- Eu sou mais forte do que você imagina e já tive que me virar sozinha mil vezes. Eu posso ser uma bruxa jovem, mas sou uma bruxa. Esse seu pique esconde não é nada. 
+* [...] -> END
 
 // quando a Agnes está perto de alcançar Kawapi, ele some e aparece em outro lugar
 
 === kawapi_some_3 ===
 
-KAWAPI: Quem sabe da próxima?
+KAWAPI: Quem sabe da próxima? #kawapi
 
 AGNES: Grande mãe... Eu tenho certeza de que não mereço isso. Tenho certeza. 
 Então por que eu? Por quê??
@@ -238,80 +242,80 @@ Então por que eu? Por quê??
 * [...] -> END
 
 
-=== vortex_2 ===
-
-De novo esse lugar... Com que forças eu me meti dessa vez? 
-Preciso pegar esse tagarela.
-
-* [...] -> END
-
 
 === labirinto_com_kawapi_3 ===
 
 // perseguição ao npc, e ele começa a tagarelar
 
-- KAWAPI: Aqui faz muito frio, não é? E que silêncio. Admito que estou preocupado, apesar do nosso jogo. Se esses vórtices se abriram na sua casa, e eu apareci nela, quer dizer que Auerá também está sendo invadida? Espera. Esse céu, essas cores. O cheiro de fumaça. Acho que reconheço...
-
--> END
+- KAWAPI: Aqui faz muito frio, não é? E que silêncio. Se esses vórtices se abriram na sua casa, e eu apareci nela, quer dizer que Auerá também está sendo invadida? 
+* [> Continuar]
+- Esse céu, essas cores. O cheiro de fumaça. Parece tão familiar... #kawapi
+* [...] -> END
 
 // quando Agnes finalmene alcança Kawapi, dessa vez, ele não some
 
 === pegou_kawapi ===
 
-KAWAPI: AH! Muito bem, você me pegou.
+KAWAPI: AH! Muito bem, você me pegou. #kawapi
 
 AGNES: 
 - (loop_npc_vortex)
 {|AGNES: |AGNES: ->terra_oculta}
 * Agora, me devolve a minha bolsa.
 
-KAWAPI: Como eu disse, acredito que poucas coisas aqui seriam valiosas para você. Mas aqui está o seu livro de magia. Era ele que você procurava, não é? Me diga se eu estiver errado.
+KAWAPI: Como eu disse, acredito que poucas coisas aqui seriam valiosas para você. Mas aqui está o seu livro de magia. Era ele que você procurava, não é? Me diga se eu estiver errado. #kawapi
 
 AGNES: Era ele mesmo. 
 -> loop_npc_vortex
 
 * Parece que você não é tão ágil assim.
 
-KAWAPI: Talvez. 
+KAWAPI: Talvez. #kawapi
 -> loop_npc_vortex
 
 - (terra_oculta)
 
 * Estamos na terra oculta, não é?
 
-KAWAPI: Você conhece esse lugar?
+KAWAPI: Você conhece esse lugar? #kawapi
 
-AGNES: Não. Não é bem conhecer. Eu li sobre um lugar assim. Ainda não tinha me tocado, mas quando você começou a falar das cores...
+- AGNES: Não é bem conhecer. Eu li sobre um lugar assim. Ainda não tinha me tocado, mas quando você começou a falar das cores...
 
-KAWAPI: E o que você sabe disso? Por favor, me conte. Tenho uma lembrança muito vaga de um céu com essas cores. Acho que Auerá já viveu a mesma coisa, há muito tempo. Eu devia ser muito jovem. Não tenho certeza...
+* [> Continuar]
+
+KAWAPI: E o que você sabe disso? Por favor, me conte. Acho que Auerá já viveu a mesma coisa, há muito tempo. Eu devia ser muito jovem. Não tenho certeza... #kawapi
 
 AGNES: <>
 ** [> Mentir]
 
-É um mundo como qualquer outro, com magia e pessoas que controlam essa magia. Às vezes portais são abertos e tudo fica confuso. Mas nem sempre isso tem a ver com um ataque ou qualquer coisa assim. 
-Podem ser apenas pontes entre dimensões. Sua terra pode ter sido visitada um dia, há muito tempo. 
-
-KAWAPI: Ah. Fico aliviado de saber. Muito obrigado, Agnes. De qualquer forma, acho que é hora de voltar. Agradeço pelo encontro. Você é poderosa, mas todos nós precisamos de sorte. Então: boa sorte. E até breve, quem sabe?
+Não precisa se preocupar. É um mundo como qualquer outro, com magia e pessoas que controlam essa magia. Às vezes portais são abertos e tudo fica confuso. 
+*** [> Continuar] 
+--- Mas nem sempre isso tem a ver com um ataque ou qualquer coisa assim. Podem ser apenas pontes entre dimensões. Sua terra pode ter sido visitada um dia, há muito tempo. 
+*** [> Continuar]
+--- KAWAPI: Ah. Fico aliviado de saber. Muito obrigado, Agnes. De qualquer forma, acho que é hora de voltar. Agradeço pelo encontro. 
+*** [> Continuar]
+--- Você é poderosa, mas todos nós precisamos de sorte. Então: boa sorte. E até breve, quem sabe?  #kawapi
+*** [...] -> END
 
 // Kawapi some.
 
--> END
 
 ** [> Falar a verdade]
 
-Vi alguma coisa no livro de história da magia. A terra oculta é um mundo em que as coisas, os seres que habitam ainda não têm um corpo, uma identidade, e ficam perambulando à procura disso. Uma terra que vem antes dos nossos mundos, logo antes dessa dimensão. 
-É uma invasão... Sinto muito em dizer isso, mas nós dois estamos em perigo. Alguém abriu uma passagem. Se me lembro bem dos livros, isso nunca acontece por acaso.
-Tenho que descobrir quem foi e o que ele quer, ou isso vai se espalhar e vai ser impossível fechar a fenda. E você precisa voltar para sua terra.
-
-KAWAPI: Você tem razão. Boa sorte nessa luta, feiticeira. Talvez possamos nos ajudar ainda, se isso sair do controle. Só o tempo dirá. 
+-- Vi alguma coisa no livro de história da magia. A terra oculta é um mundo em que as coisas, os seres que habitam ainda não têm um corpo, uma identidade, e ficam perambulando à procura disso. Uma terra que vem antes dos nossos mundos, logo antes dessa dimensão. 
+*** [> Continuar]
+--- É uma invasão... Sinto muito em dizer isso, mas nós dois estamos em perigo. Alguém abriu uma passagem. Se me lembro bem dos livros, isso nunca acontece por acaso.
+*** [> Continuar]
+--- Tenho que descobrir quem foi e o que ele quer, ou isso vai se espalhar e vai ser impossível fechar a fenda. E você precisa voltar para sua terra.
+*** [> Continuar]
+--- KAWAPI: Era o que eu temia. Você tem razão. Boa sorte nessa luta, feiticeira. Talvez possamos nos ajudar ainda, se isso sair do controle. Só o tempo dirá.  #kawapi
+*** [...] -> END
 
 // Kawapi some.
 
--> END
-
 === depois_do_dialogo ===
 
-AGNES: Bem... agora acho que só resta resolver a situação.
+AGNES: É... agora acho que só posso fazer mais uma coisa.
 
 * [...] -> END
 
@@ -324,13 +328,13 @@ Passam uns minutos e tudo muda de lugar? Nem eu faço tanta bagunça assim. Vamo
 
 
 
-
 === porta_da_rua_2 ===
 
-Encontrei! Bem, Agnes, chegou a hora de sair de casa. 
+Ok, Agnes, chegou a hora de sair de casa. 
 
 * Ou tudo vai estar normal[...], isso foi tudo um sonho, temos uma prova de encantamentos pra fazer.
-- Ou vamos descobrir o destino. Mas com as ferramentas certas pra briga.
+- Ou vamos descobrir o destino. Mas com as ferramentas certas pra briga. 
+Talvez.
 
 * [...] -> END
 
@@ -339,71 +343,59 @@ Encontrei! Bem, Agnes, chegou a hora de sair de casa.
 
 === sala_final ===
 
-???: Agnes.
-* ["Quem é você?"]
+???: Agnes. #boss
+* [O que é você?]
 
-- "Qu. Mas! Qu......... Quem??"
-???: Agnes é um nome bonito. Gostei dele. Agnes, não procure lutar. Eu sou todas as coisas de que você tem medo em uma massa só. Tudo que você detesta, tudo que te causa nojo ou repulsa e tudo que te paralisa. 
-Você já perdeu, mas isso não quer dizer a morte. Quer dizer só uma troca.
+- AGNES: Qu. Mas! Qu......... Quê??
+???: Agnes é um belo nome. Terá serventia. #boss
+* [> Continuar]
+Agnes, não procure lutar. Você já perdeu, mas isso não quer dizer a morte. Quer dizer apenas uma troca. #boss
 
-* ["Você não me conhece!"]
-- "......."
-???: Eu fico com o seu mundo e você fica aqui no meu. Um dia você pode encontrar uma outra terra e tomar posse dela. É um dos muitos ciclos do cosmos. Não tem como evitar. 
-Seria como... Como a árvore que cai. E ao morrer alimenta um milhão de fungos e bactérias.
+* [Você não me conhece!]
+- AGNES: .......
+???: Eu fico com o seu mundo e você fica aqui no meu. Um dia você pode encontrar uma outra terra e tomar posse dela. É um dos muitos ciclos do cosmos.  #boss
+* [> Continuar]
+- Não tem como evitar. Seria como... Como a árvore que cai. E ao morrer alimenta um milhão de fungos e bactérias. #boss
 
-* ["Espera um pouco! Como assim?"]
+* [Espera um pouco! Como assim?]
 
-- "!!!!!"
-???: E você, como essa árvore, não foi sequer escolhida. Eu vim aqui como poderia ter ido a qualquer outra cidade. A pessoa que você é não importa. 
-O que eu quero é Agnes. E um corpo. Que vai ser o seu.
+- AGNES: !!!!!!!
+???: Você irá para a terra de onde venho. O tempo mudará. Tudo que já aconteceu, neste mundo, estará ainda por acontecer nessa terra. Tudo é cíclico. Todo fim leva de volta ao início. #boss
+* [> Continuar]
+- A pessoa que você é não importa. O que eu quero, agora, é Agnes. E um corpo, uma vida. Que vai ser a sua. #boss
 
-* [Lutar pela sua vida] -> luta
+* [> Lutar pela sua vida] -> END
 // inicia um combate 
 
-* "Espera aí.["] Você precisa me responder uma coisa antes."
-???: ... tenho todo o tempo. Se você acha que isso vai fazer alguma diferença...
-
-** "Você acha que me assusta?"
-
-???: Muito bem. Esse momento pode ser tão ruim quanto você quiser. Para mim não faz diferença. Mas compreendo seu anseio por se mostrar forte.  -> luta_dificil
-// boss fica mais difícil por conta da pergunta
-
-** "As bruxas sabem o seu nome. Você quer saber?"
-???: Impossível. 
-
-*** "Eu conto se você me soltar."
-???: Que trapaça fraca. Achou que me enganaria assim? Você não tem noção do que pretende enfrentar. Chega dessa conversa. -> luta
+* Espera aí[.] Eu quero saber uma coisa antes.
+???: ... tenho todo o tempo. Se você acha que isso vai fazer alguma diferença. #boss
+AGNES: 
+** As bruxas sabem o seu nome. Você quer saber?
+???: Impossível. #boss
+AGNES:
+*** Eu conto se você me soltar.
+???: Que trapaça fraca. Achou que me enganaria assim? Você não tem noção do que pretende enfrentar. Chega dessa conversa. #boss
+**** [> Lutar pela sua vida] -> END
 
 *** "É verdade. Seu nome é Ganakai. Agora vá embora."
-???: Que absurdo. Você acabou de inventar esse nome. Acha que sou um bicho estúpido? Chega dessa conversa. -> luta
+???: Que absurdo. Você acabou de inventar esse nome. Acha que sou um bicho estúpido? Chega dessa conversa. #boss
+**** [> Lutar pela sua vida] -> END
 
-** "O que você era antes disso?"
-???: Como você. E uma coisa terrível aconteceu comigo. Felizmente, nada dura para sempre. Você vai entender muito em breve. 
-
-*** "Eu não acredito em você."
-???: Eu te mostro. Não é um problema. -> luta_facil
-// os "tentáculos" começam a se retrair. É o momento de atacar e dar mais dano. Boss mais fraco.
-
-*** "Não vai acontecer nada comigo."
-???: Não é possível impedir. Seria tentar ir contra as próprias leis da natureza. Não resista. ->luta
+** Não vai acontecer nada comigo.
+???: Não é possível impedir. Seria tentar ir contra as próprias leis da natureza. Tudo precisa se transformar um dia. É o ciclo cósmico. Não resista. #boss
+*** [> Lutar pela sua vida] -> END
 //luta normal
 
-*** "Então podemos fazer isso de outro jeito!"
-???: Não existe outro jeito. Tudo precisa se transformar um dia. É o ciclo cósmico. Eu sou apenas um executor. -> luta 
+** Podemos fazer isso de outro jeito!
+???: Não existe outro jeito. Tudo precisa se transformar um dia. É o ciclo cósmico. Não resista. #boss
+*** [> Lutar pela sua vida] -> END
 
-=== luta ===
-// luta com a mecânica normal
--> END
 
-=== luta_facil ===
-// luta com a mecânica normal, mas o boss começa com menos vida, por ter levado um hit em uma forma mais vulnerável no começo
--> END
+=== fim_do_jogo ===
 
-=== luta_dificil ===
-// luta com o boss mais forte e/ou mais rápido
--> END
+O fim é o começo...
 
-//com o boss derrotado, Agnes desmaia e cai em sono profundo
+* [...] -> END
 
 
 === objeto_colecionavel ===
@@ -507,34 +499,5 @@ Conforme a tradição seguida por Agnes, existem três passos básicos para faze
 1 - Olhar atentamente para as coisas do mundo. 
 2 - Respirar fundo, trazendo todas as coisas para dentro de si.
 3 - Na exalação, ser todas as coisas, de forma plena e sem preconceitos.
-
--> END
-
-
-=== quarto_depois ===
-
-//tela preta
-
-Não, sapo... Quantas vezes eu vou ter que te falar? Você não pode nadar aqui. A gente bebe dessa água. Não pode, sapo... não adianta... eu não vou repetir...
-
-* [Afogar o sapo]
-
-- Eu não quero te afogar, sapo. O quê? Onde é que.
-Ah. Um sonho.
-
-* Espera aí...
-
-- Hoje é a prova de encantamentos! Socorro! Não tenho condições pra isso. 
-Por que eu, por que hoje??
-Ahhhhh... Odeio ter que levantar cedo...
-
-* [Acender as luzes] -> END
-
-// as luzes se acendem e o jogador precisa fazer o mesmo caminho de antes, mas agora sem a invasão da segunda dimensão - ela pega as roupas no quarto, se veste e sai para a sala central.
-
-
-=== sala_depois ===
-
-// Agnes anda até a porta e vê que ela está arrombada, pelo uso do seu feitiço no dia anterior, lutando contra o Horror. Existem alguns restos do corpo do Horror perto da porta. Ela para por um tempo. É aí que se percebe que não foi um sonho. Ela então usa um encantamento de proteção na casa e na porta, limpando o lugar e deixando um selo sobre o chão. E sai para a rua.
 
 -> END

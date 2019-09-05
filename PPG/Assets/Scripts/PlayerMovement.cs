@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     bool isDashCooldown = false;
     bool isSpecialCooldown = false;
     bool allowFall = false;
+    static public bool breakAbility = false;
 
     public static bool allowmovement = false;
 
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
    // double timeJumpDown;
     bool fall;
     float dash;
-    bool special;
+    float special;
     float stepTime = 0f;
     Vector3 checkpoint = new Vector3(-2.086f, -5.187f, -23.28391f);
 
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
             jump = Input.GetAxisRaw("Jump"); /*Ser deletado - não utilizado*/
             // jumpUp = Input.GetButtonUp("Jump");
             //  jumpDown = Input.GetButtonDown("Jump");
-            special = Input.GetButtonDown("SpecialAttack");
+            special = Input.GetAxisRaw("SpecialAttack");
             fall = Input.GetButtonDown("Fall");
             dash = Input.GetAxisRaw("Dash");
             animator.SetFloat("Speed", Mathf.Abs(move));
@@ -122,7 +123,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
 
-        if (special && !isSpecialCooldown)
+        if (special!=0 && !isSpecialCooldown)
         {
             isSpecialCooldown = true;
             animator.SetBool("2_Up", true);
@@ -323,16 +324,26 @@ public void Paralyse()
         }
 
         if (collision.gameObject.CompareTag("Obstacle")){
-            Debug.Log("Agnes foi pras cucuias");
-            if(soundManager != null)
-                soundManager.PlaySound("DeathSound");
-            animator.SetBool("Death", true);
-            rb.simulated = false;
-            DisallowMovement();
-            Invoke("Respawn", 1f);
+
+            if(breakAbility && isDashing)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                Debug.Log("Agnes foi pras cucuias");
+                if (soundManager != null)
+                    soundManager.PlaySound("DeathSound");
+                animator.SetBool("Death", true);
+                rb.simulated = false;
+                DisallowMovement();
+                Invoke("Respawn", 1f);
+            }
+
         }
+        
         /*
-        if (collision.gameObject.CompareTag("RedObstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") && breakAbility)
         {
             Debug.Log("Atingiu obstaculo vermelho");
             if (isDashing == true)
@@ -342,6 +353,9 @@ public void Paralyse()
 
         }
         */
+
+
+
         if (collision.gameObject.CompareTag("EndGameCollider")){
             Debug.Log("Agnes foi pras cucuias");
             if (soundManager != null)
