@@ -85,8 +85,13 @@ public class Script : MonoBehaviour
         {
             GameObject.Find("DialogPanel").SetActive(false);
             GameObject.Find("DialogPanelImage").SetActive(false);
-            GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
-            GameObject.Find("Player").GetComponent<PlayerMovement>().Unparalyse();
+
+            if(!NPC.isNPCTeleporting){
+                GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
+                GameObject.Find("Player").GetComponent<PlayerMovement>().Unparalyse();
+            }
+
+
         }
 
     }
@@ -109,8 +114,36 @@ public class Script : MonoBehaviour
 
         if ((sceneName == "banheiro_com_npc") && choice.text == "...")
         {
+            GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+            //PlayerMovement.allowmovement = false;
             GameObject.Find("Kawapi").GetComponent<NPC>().teleport();
         }
+
+        if ((sceneName == "labirinto_com_kawapi_1") && choice.text == "...")
+        {
+            GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+            //PlayerMovement.allowmovement = false;
+            GameObject.Find("Kawapi").GetComponent<NPC>().teleport();
+        }
+
+        if ((sceneName == "labirinto_com_kawapi_2") && choice.text == "...")
+        {
+            GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+            //PlayerMovement.allowmovement = false;
+            GameObject.Find("Kawapi").GetComponent<NPC>().teleport();
+        }
+
+        if ((sceneName == "pegou_kawapi") && choice.text == "...")
+        {
+            //GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+            //PlayerMovement.allowmovement = false;
+            GameObject.Find("Kawapi").SetActive(false);
+            PlayerMovement.breakAbility = true;
+            //GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
+            //GameObject.Find("Player").GetComponent<PlayerMovement>().Unparalyse();
+            sceneName = null;
+        }
+
         refresh();
     }
 

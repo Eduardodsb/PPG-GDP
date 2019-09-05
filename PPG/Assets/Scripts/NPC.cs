@@ -5,12 +5,18 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
 
+    public GameObject dialogPanel;
+    public GameObject dialogPanelImage;
+
+    public static bool isNPCTeleporting = false;
+
+
     int count = 0;
 
-    Vector3 firstPosition = new Vector3(39.2f, -1.41f, 0);
+    Vector3 firstPosition = new Vector3(39.485f, -1.541f, 0);
     Vector3 secondPosition = new Vector3(44.17f, 11.8f, 0);
-    Vector3 thirdPosition = new Vector3(25.87f, 1.85f, 0);
-
+    Vector3 thirdPosition = new Vector3(25.709f, 1.814f, 0);
+    //x = 48.042f ; y= 23.246f
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +28,9 @@ public class NPC : MonoBehaviour
 
     public void teleport()
     {
-        GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+        isNPCTeleporting = true;
+        //GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+        PlayerMovement.allowmovement = false;
         this.GetComponent<Animator>().SetBool("Teleportation", true);
         Invoke("changePosition", 2);
     
@@ -33,25 +41,51 @@ public class NPC : MonoBehaviour
     {
         if (count == 0)
         {
+            PlayerMovement.allowmovement = false;
             transform.position = firstPosition;
+            dialogPanel.SetActive(true);
+            dialogPanelImage.SetActive(true);
+            isNPCTeleporting = false;
+            Script.sceneNames = "kawapi_some";
+            Script teste = dialogPanel.GetComponent<Script>();
+            teste.Start();
+
+
+            //Script.sceneMap.Add(collision.gameObject.name, 0);
 
         }
 
         else if (count == 1)
         {
+            PlayerMovement.allowmovement = false;
             transform.position = secondPosition;
+            dialogPanel.SetActive(true);
+            dialogPanelImage.SetActive(true);
+            isNPCTeleporting = false;
+            Script.sceneNames = "kawapi_some_2";
+            Script teste = dialogPanel.GetComponent<Script>();
+            teste.Start();
         }
 
         else if (count == 2)
         {
+            PlayerMovement.allowmovement = false;
             transform.position = thirdPosition;
+            dialogPanel.SetActive(true);
+            dialogPanelImage.SetActive(true);
+            isNPCTeleporting = false;
+            Script.sceneNames = "kawapi_some_3";
+            Script teste = dialogPanel.GetComponent<Script>();
+            teste.Start();
         }
 
         count++;
     }
 
     public void setTeleportationFalse() {
-        GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
+        //GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
+        //GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+        //PlayerMovement.allowmovement = false;
         this.GetComponent<Animator>().SetBool("Teleportation", false);
 }
 

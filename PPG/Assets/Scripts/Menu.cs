@@ -25,6 +25,10 @@ public class Menu : MonoBehaviour {
     }
 
     public void StartGame(){
+        //GameManagementScript.numberColectables = 0;
+        //GameManagementScript.notDied = true;
+        //GameManagementScript.endGame = false;
+        //GameManagementScript.timeCounter = 0f;
         GameObject.Find("GameManager").GetComponent<SoundManagerScript>().StopSound("MenuSound");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
