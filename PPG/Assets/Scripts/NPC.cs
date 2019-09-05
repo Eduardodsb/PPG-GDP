@@ -63,6 +63,7 @@ public class NPC : MonoBehaviour
             dialogPanelImage.SetActive(true);
             isNPCTeleporting = false;
             Script.sceneNames = "kawapi_some_2";
+            GameObject.Find("DialogManager").transform.GetChild(18).gameObject.SetActive(true);
             Script teste = dialogPanel.GetComponent<Script>();
             teste.Start();
         }
@@ -75,6 +76,8 @@ public class NPC : MonoBehaviour
             dialogPanelImage.SetActive(true);
             isNPCTeleporting = false;
             Script.sceneNames = "kawapi_some_3";
+            GameObject.Find("DialogManager").transform.GetChild(19).gameObject.SetActive(true);
+            GameObject.Find("DialogManager").transform.GetChild(20).gameObject.SetActive(true);
             Script teste = dialogPanel.GetComponent<Script>();
             teste.Start();
         }

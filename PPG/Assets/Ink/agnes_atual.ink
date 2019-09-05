@@ -256,7 +256,8 @@ AGNES:
 {|AGNES: |AGNES: ->terra_oculta}
 * Agora, me devolve a minha bolsa.
 
-KAWAPI: Como eu disse, acredito que poucas coisas aqui seriam valiosas para você. Mas aqui está o seu livro de magia. Era ele que você procurava, não é? Me diga se eu estiver errado. #kawapi
+KAWAPI: Como eu disse, acredito que poucas coisas aqui seriam valiosas para você. #kawapi
+-Mas aqui está o seu livro de magia. Era ele que você procurava, não é? Me diga se eu estiver errado. #kawapi
 
 AGNES: Era ele mesmo. 
 -> loop_npc_vortex
@@ -309,6 +310,21 @@ Não precisa se preocupar. É um mundo como qualquer outro, com magia e pessoas 
 === depois_do_dialogo ===
 
 AGNES: É... agora acho que só posso fazer mais uma coisa.
+
+* [...] -> END
+
+
+=== pegou_bolsa ===
+
+AGNES: Graças a deusa recuperei minha bolsa! 
+
+* [> Vasculhar bolsa]
+
+- O que é isso !? Não creio... Achei o pergaminho da aula de encantos!!
+
+*[> Usar pergaminho]
+
+- Agora consigo quebrar esses troços verdes com minhas magias!
 
 * [...] -> END
 

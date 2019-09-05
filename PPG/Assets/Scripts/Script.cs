@@ -91,7 +91,6 @@ public class Script : MonoBehaviour
                 GameObject.Find("Player").GetComponent<PlayerMovement>().Unparalyse();
             }
 
-
         }
 
     }
@@ -142,12 +141,19 @@ public class Script : MonoBehaviour
             //GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
             //GameObject.Find("Player").GetComponent<PlayerMovement>().Unparalyse();
             //GameObject.Find("DialogManager").transform.GetChild(21).gameObject.SetActive(true);
-            GameObject.Find("DialogManager").transform.GetChild(21).gameObject.SetActive(true);
+            GameObject.Find("DialogManager").transform.GetChild(22).gameObject.SetActive(true);
 
             //GameObject.Find("Bag").SetActive(true);
 
             sceneName = null;
         }
+
+        if((sceneName == "pegou_bolsa") && choice.text == "...")
+        {
+            GameObject.Find("DialogManager").transform.GetChild(22).gameObject.SetActive(false);
+            sceneName = null;
+        }
+
 
         if ((sceneName == "sala_final") && choice.text == "...")
         {
