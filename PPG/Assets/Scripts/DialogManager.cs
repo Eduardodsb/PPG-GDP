@@ -54,6 +54,7 @@ public class DialogManager : MonoBehaviour
                 collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
                 Script.sceneNames = dialogMap[collision.gameObject];
+                Script.gameObjectCollision = collision.gameObject;
 
                 //Script.sceneMap.Add(collision.gameObject.name, 0);
 

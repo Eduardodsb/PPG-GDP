@@ -1,14 +1,6 @@
 ->quarto
 === quarto ===
 
-//tela preta
-
-Eu te falei que não era pra misturar essas ervas, sapo. Não importa o que a grande mãe te disse. Não, não era pra misturar... eu te falei... 
-
-* [Comer o sapo]
-
-- Hein? O quê?
-
 //luz fraca
 
 Nossa, que sonho bizarro. Não aguento mais essa semana. 
@@ -200,6 +192,7 @@ Acho que não consigo passar por isso ainda. Preciso de magias mais poderosas.
 === kawapi_some_2 ===
 
 KAWAPI: Não foi dessa vez! #kawapi
+AGNES: Oficialmente declaro quarta-feira o pior dia da semana.
 
 * [...] -> END
 
@@ -398,7 +391,7 @@ O fim é o começo...
 * [...] -> END
 
 
-=== objeto_colecionavel ===
+=== objeto_colecionavel_1===
 
 Ahhh, não! Isso é do meu livro de história da magia. Acho que com isso tudo acontecendo algumas páginas mais frágeis devem ter caído. Talvez eu consiga colocar de volta depois.
 
@@ -406,6 +399,12 @@ Ahhh, não! Isso é do meu livro de história da magia. Acho que com isso tudo a
 
 -> END
 
+=== objeto_colecionavel_2 ===
+
+Mais uma página do livro... 
+Esse vórtice faz mais bagunça do que eu.
+
+* [Guardar página] -> END
 
 === comentarios_esporadicos ===
 

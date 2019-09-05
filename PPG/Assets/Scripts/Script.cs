@@ -13,15 +13,18 @@ public class Script : MonoBehaviour
     int cont = 0;
     int counter = 0;
     int countKawapi = 0;
+
+    static public GameObject gameObjectCollision;
+
     //static public Dictionary<string, int> sceneMap = new Dictionary<string, int>();
     static public string sceneNames;
-
+    string sceneName;
     // Start is called before the first frame update
     public void Start()
     {
         // Load the next story block
         story = new Story(inkJSONAsset.text);
-
+        sceneName = sceneNames;
         // Start the refresh cycle
         refresh();
 
@@ -98,7 +101,11 @@ public class Script : MonoBehaviour
         {
             GameObject.Find("Light").GetComponent<Animator>().enabled = true;
         }
-
+        Debug.Log(sceneName);
+        if((sceneName == "objeto_colecionavel_1" || sceneName == "objeto_colecionavel_2"))
+        {
+            gameObjectCollision.gameObject.SetActive(false);
+        }
         refresh();
     }
 

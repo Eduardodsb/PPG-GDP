@@ -24,17 +24,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Cam"))
-        {
+        if (collision.CompareTag("Cam")){
 
-            if (cam != null)
-            {
+            if (cam != null){
                 //Desativar Câmera atual/velha
                 cam.GetComponent<CinemachineVirtualCamera>().m_Priority = 0;
             }
 
             cam = GameObject.Find("CMv" + collision.name); //Obtém o nome da nova câmera
             cam.GetComponent<CinemachineVirtualCamera>().m_Priority = 1; //Ativa a nova câmera
+        }
+
+        if(collision.gameObject.name == "banheiro_com_npc"){
+            GameObject.Find("TeleportationColliders").transform.GetChild(0).gameObject.SetActive(true);
         }
   
     }
