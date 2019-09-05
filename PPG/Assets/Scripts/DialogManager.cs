@@ -61,21 +61,24 @@ public class DialogManager : MonoBehaviour
                 Script teste = dialogPanel.GetComponent<Script>();
                 teste.Start();
 
-                //Script.sceneNames = "";
+            //Script.sceneNames = "";
 
-                //}
-
-
-
+            //}
+            if (dialogMap[collision.gameObject] == "objeto_colecionavel_1" || dialogMap[collision.gameObject] == "objeto_colecionavel_2")
+            {
+                GameManagementScript.numberColectables++;
             }
 
+
+        }
+            /*
             if (dialogMap.ContainsKey(collision.gameObject)) { 
-                if (dialogMap[collision.gameObject] == "objeto_colecionavel")
+                if (dialogMap[collision.gameObject] == "objeto_colecionavel_1" || dialogMap[collision.gameObject] == "objeto_colecionavel_2")
                 {
                     GameManagementScript.numberColectables++;
                 }
             }
-
+            */
 
 
     }

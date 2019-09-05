@@ -141,6 +141,11 @@ public class Script : MonoBehaviour
             PlayerMovement.breakAbility = true;
             //GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
             //GameObject.Find("Player").GetComponent<PlayerMovement>().Unparalyse();
+            //GameObject.Find("DialogManager").transform.GetChild(21).gameObject.SetActive(true);
+            GameObject.Find("DialogManager").transform.GetChild(21).gameObject.SetActive(true);
+
+            //GameObject.Find("Bag").SetActive(true);
+
             sceneName = null;
         }
 
@@ -223,7 +228,7 @@ public class Script : MonoBehaviour
           while (story.canContinue){
               text += story.Continue();
                 //Se o kawapi falar algo, ajusta o painel de diálogo para o tramanho correto e ativa a imagem do kawapi.
-                if(story.currentTags.Count!= 0)
+                if(story.currentTags.Count!= 0 && story.currentTags[0]=="kawapi")
                 {
                     countKawapi++;
                     Debug.Log(story.currentTags[0]);
