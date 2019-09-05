@@ -22,9 +22,19 @@ public class NPC : MonoBehaviour
 
     public void teleport()
     {
-        if(count == 0)
+        GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+        this.GetComponent<Animator>().SetBool("Teleportation", true);
+        Invoke("changePosition", 2);
+    
+
+    }
+
+    public void changePosition()
+    {
+        if (count == 0)
         {
             transform.position = firstPosition;
+
         }
 
         else if (count == 1)
@@ -38,8 +48,12 @@ public class NPC : MonoBehaviour
         }
 
         count++;
-
     }
+
+    public void setTeleportationFalse() {
+        GameObject.Find("Player").GetComponent<PlayerMovement>().AllowMovement();
+        this.GetComponent<Animator>().SetBool("Teleportation", false);
+}
 
     // Update is called once per frame
     /*

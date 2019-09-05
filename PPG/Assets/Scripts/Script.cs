@@ -101,7 +101,7 @@ public class Script : MonoBehaviour
         {
             GameObject.Find("Light").GetComponent<Animator>().enabled = true;
         }
-        Debug.Log(sceneName);
+
         if((sceneName == "objeto_colecionavel_1" || sceneName == "objeto_colecionavel_2"))
         {
             gameObjectCollision.gameObject.SetActive(false);
@@ -109,7 +109,7 @@ public class Script : MonoBehaviour
 
         if ((sceneName == "banheiro_com_npc") && choice.text == "...")
         {
-           // GameObject.Find("Kawapi").GetComponent<NPC>().teleport();
+            GameObject.Find("Kawapi").GetComponent<NPC>().teleport();
         }
         refresh();
     }
