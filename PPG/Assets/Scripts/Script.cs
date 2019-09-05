@@ -9,8 +9,10 @@ public class Script : MonoBehaviour
     public TextAsset inkJSONAsset;
     static public Story story;
     public Button buttonPrefab;
+    public GameObject DialogPanelImage2;
     int cont = 0;
     int counter = 0;
+    int countKawapi = 0;
     //static public Dictionary<string, int> sceneMap = new Dictionary<string, int>();
     static public string sceneNames;
 
@@ -45,6 +47,14 @@ public class Script : MonoBehaviour
 
         // Set the text from new story block
         newTextObject.text = getNextStoryBlock();
+        
+        //Se Kawapi não tiver participação no texto, desativa a sua imagem e ajusta o painel do diálogo para o tamanho normal.
+        if(countKawapi == 0)
+        {
+            DialogPanelImage2.SetActive(false);
+            gameObject.GetComponent<RectTransform>().offsetMax = new Vector2(0f, gameObject.GetComponent<RectTransform>().offsetMax.y);
+        }
+
         // Load Arial from the built-in resources
         newTextObject.lineSpacing = 2;
         newTextObject.font = (Font)Resources.Load("Fontes/PressStart2P");
@@ -106,59 +116,75 @@ public class Script : MonoBehaviour
     // Load and potentially return the next story block
     string getNextStoryBlock(){
 
+
         
+       
+        
+
         if (sceneNames != null)
         {
             GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
             GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
             GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
+            GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetBool("Up", false);
+            GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetBool("Down", false);
+            GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetBool("Dash", false);
+            GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetBool("2_Up", false);
             story.ChoosePathString(sceneNames);
             sceneNames = null;
         }
 
 
 
-            /*
-            if (sceneMap.ContainsKey("vortex_1") && sceneMap["vortex_1"] == 0)
+        /*
+        if (sceneMap.ContainsKey("vortex_1") && sceneMap["vortex_1"] == 0)
+        {
+            GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+            GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
+            GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
+            story.ChoosePathString("vortex_1");
+            sceneMap["vortex_1"] += 1;
+            //sceneMap.Remove();
+
+
+        }
+
+        else
+        {
+            if (sceneMap.ContainsKey("sala_1") && sceneMap["sala_1"] == 0)
             {
                 GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
                 GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
                 GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
-                story.ChoosePathString("vortex_1");
-                sceneMap["vortex_1"] += 1;
-                //sceneMap.Remove();
-
-
+                story.ChoosePathString("sala_1");
+                sceneMap["sala_1"] += 1;
             }
-
-            else
-            {
-                if (sceneMap.ContainsKey("sala_1") && sceneMap["sala_1"] == 0)
-                {
-                    GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
-                    GameObject.Find("Player").GetComponent<PlayerMovement>().Paralyse();
-                    GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetFloat("Speed", 0);
-                    story.ChoosePathString("sala_1");
-                    sceneMap["sala_1"] += 1;
-                }
-            }
-            */
+        }
+        */
 
 
 
-            //Redireciona para um bloco específico do ink apenas uma x
-            /*  if (counter == 0)
-              {
-                  story.ChoosePathString("sala_central");
-                  counter++;
-              }*/
-
+        //Redireciona para um bloco específico do ink apenas uma x
+        /*  if (counter == 0)
+          {
+              story.ChoosePathString("sala_central");
+              counter++;
+          }*/
+        countKawapi = 0;
             string text = "";
         //text += story.Continue();
           while (story.canContinue){
               text += story.Continue();
+                //Se o kawapi falar algo, ajusta o painel de diálogo para o tramanho correto e ativa a imagem do kawapi.
+                if(story.currentTags.Count!= 0)
+                {
+                    countKawapi++;
+                    Debug.Log(story.currentTags[0]);
+                    DialogPanelImage2.SetActive(true);
+                    gameObject.GetComponent<RectTransform>().offsetMax = new Vector2(-219.7419f, gameObject.GetComponent<RectTransform>().offsetMax.y);
+                }
 
-          }
+        }
 
        /* if (story.canContinue == false){
             GameObject.Find("DialogPanel").SetActive(false);
