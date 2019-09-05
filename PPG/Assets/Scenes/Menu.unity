@@ -2263,6 +2263,12 @@ MonoBehaviour:
     volume: 1
     priority: 128
     audiosrc: {fileID: 0}
+  - name: SpecialSound
+    clip: {fileID: 8300000, guid: 2743bced7a75906438f0e40803c5c472, type: 3}
+    loop: 0
+    volume: 1
+    priority: 128
+    audiosrc: {fileID: 0}
 --- !u!114 &1574619162
 MonoBehaviour:
   m_ObjectHideFlags: 0

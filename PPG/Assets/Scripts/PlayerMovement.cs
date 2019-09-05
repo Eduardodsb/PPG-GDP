@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             isSpecialCooldown = true;
             animator.SetBool("2_Up", true);
-            /*animator.SetTrigger("2_Jump");*/
+            soundManager.PlaySound("SpecialSound");
             Invoke("removeSpecialCooldown", cooldownSpecialTime);
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0f, specialForce));
