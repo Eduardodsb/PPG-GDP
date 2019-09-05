@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - EndGameCollider
   - CheckpointCollider
+  - Teleportation
   layers:
   - Default
   - TransparentFX
