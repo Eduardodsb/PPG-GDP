@@ -144,6 +144,12 @@ public class Script : MonoBehaviour
             sceneName = null;
         }
 
+        if ((sceneName == "sala_final") && choice.text == "...")
+        {
+            GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
+            GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(true);
+        }
+
         refresh();
     }
 
