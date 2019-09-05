@@ -373,6 +373,18 @@ public void Paralyse()
             collision.gameObject.SetActive(false);
         }
 
+        if (collision.gameObject.CompareTag("Teleportation"))
+        {
+            if(collision.gameObject.name == "Teleportation1")
+            {
+                gameObject.transform.position = new Vector3(45.31498f - 0.594f, 23.31415f - 30.103f, 0);
+            }
+            if (collision.gameObject.name == "Teleportation2")
+            {
+                gameObject.transform.position = new Vector3(45.31498f + 0.309f, 23.31415f - 0.3f, 0);
+            }
+        }
+
 
     }
 
