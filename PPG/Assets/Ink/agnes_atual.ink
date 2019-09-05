@@ -357,6 +357,8 @@ Agnes, não procure lutar. Você já perdeu, mas isso não quer dizer a morte. Q
 * [> Continuar]
 - A pessoa que você é não importa. O que eu quero, agora, é Agnes. E um corpo, uma vida. Que vai ser a sua. #boss
 
+* [...] -> END
+/*
 * [> Lutar pela sua vida] -> END
 // inicia um combate 
 
@@ -382,7 +384,7 @@ AGNES:
 ** Podemos fazer isso de outro jeito!
 ???: Não existe outro jeito. Tudo precisa se transformar um dia. É o ciclo cósmico. Não resista. #boss
 *** [> Lutar pela sua vida] -> END
-
+*/
 
 === fim_do_jogo ===
 
