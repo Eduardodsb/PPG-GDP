@@ -116,11 +116,6 @@ public class Script : MonoBehaviour
     // Load and potentially return the next story block
     string getNextStoryBlock(){
 
-
-        
-       
-        
-
         if (sceneNames != null)
         {
             GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
@@ -130,6 +125,13 @@ public class Script : MonoBehaviour
             GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetBool("Down", false);
             GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetBool("Dash", false);
             GameObject.Find("Player").GetComponent<PlayerMovement>().animator.SetBool("2_Up", false);
+
+            if(sceneNames == "fim_do_jogo")
+            {
+                GameManagementScript.timeCounter = Time.time;
+                GameManagementScript.endGame = true;
+            }
+
             story.ChoosePathString(sceneNames);
             sceneNames = null;
         }

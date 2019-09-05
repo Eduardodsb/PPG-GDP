@@ -12,7 +12,7 @@ public class GameManagementScript : MonoBehaviour
     static public int numberColectables = 0;
     static public bool notDied = true;
     static public bool endGame = false;
-    static public bool timeCounter = false;
+    static public float timeCounter = 0f;
 
 
     // Start is called before the first frame update
