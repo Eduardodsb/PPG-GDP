@@ -106,6 +106,11 @@ public class Script : MonoBehaviour
         {
             gameObjectCollision.gameObject.SetActive(false);
         }
+
+        if ((sceneName == "banheiro_com_npc") && choice.text == "...")
+        {
+           // GameObject.Find("Kawapi").GetComponent<NPC>().teleport();
+        }
         refresh();
     }
 
