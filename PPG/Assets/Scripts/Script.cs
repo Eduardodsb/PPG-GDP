@@ -134,6 +134,7 @@ public class Script : MonoBehaviour
 
         if ((sceneName == "pegou_kawapi") && choice.text == "...")
         {
+            Debug.Log("teste");
             //GameObject.Find("Player").GetComponent<PlayerMovement>().DisallowMovement();
             //PlayerMovement.allowmovement = false;
             GameObject.Find("Kawapi").SetActive(false);
