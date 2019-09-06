@@ -100,7 +100,6 @@ public class MenuLoreScript : MonoBehaviour
         if (story.currentChoices.Count == 0)
         {
             //Debug.Log(story.state.currentPathString);
-
             //story.ResetState();
             GameObject.Find("LoreText").SetActive(false);
         }
